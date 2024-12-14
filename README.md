@@ -83,7 +83,7 @@ This project focuses on automating crudBD operations for JSON files, making it e
    ```
    npm run home
    ```   
- 7. For Executing:
+9. For Executing:
    ```
    npm run start
    ```
