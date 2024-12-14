@@ -13,6 +13,6 @@ npm run AdminAllDays-CommonConfig-QrCodeAtStage-BranchFilter
 npm run AdminAllDays-CommonConfig-QrCodeAtStage-BranchWise
 npm run Admin-Masters
 
-cp -r  ./publicDir/* ../CrudGenV2/public/Laundry/Admin
+cp -r  ./publicDir/* ../CrudGenV3/public/Laundry/Admin
 
-cd ../CrudGenV2
+cd ../CrudGenV3

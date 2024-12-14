@@ -24,6 +24,6 @@ npm run Dashboard-QrCodeAtStage-BranchFilter
 call npm run Delivery
 
 
-cp -r  ./publicDir/* ../CrudGenV2/public/Laundry/Branch
+cp -r  ./publicDir/* ../CrudGenV3/public/Laundry/Branch
 
-cd ../CrudGenV2
+cd ../CrudGenV3

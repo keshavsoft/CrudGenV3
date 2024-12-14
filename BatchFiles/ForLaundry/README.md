@@ -1,9 +1,9 @@
-# CrudGenV2
+# CrudGenV3
 3. Clone the repository
    ```
    .\BatchFiles\ForLaundry\LaundryFrontEndForBranch.bat
    ```
-4. Change Directory to CrudGenV2 or Open the cloned folder, navigate to CrudGenV2, and open the command prompt.
+4. Change Directory to CrudGenV3 or Open the cloned folder, navigate to CrudGenV3, and open the command prompt.
    ```
    .\BatchFiles\ForLaundry\LaundryFrontEndForAdmin.bat
    ```

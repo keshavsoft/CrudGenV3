@@ -6,9 +6,9 @@ cd ../crudFrontEnd
 # Run the Dashboard npm script
 npm run Dashboard
 
-# Copy the AllTables directory to the target directory in CrudGenV2
-rsync -av --progress ./publicDir/AllTables/ ../CrudGenV2/public/crudFrontEnd/AllTables
+# Copy the AllTables directory to the target directory in CrudGenV3
+rsync -av --progress ./publicDir/AllTables/ ../CrudGenV3/public/crudFrontEnd/AllTables
 
-# Navigate to the CrudGenV2 directory
-cd ../CrudGenV2
+# Navigate to the CrudGenV3 directory
+cd ../CrudGenV3
 

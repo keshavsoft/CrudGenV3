@@ -12,6 +12,6 @@ npm run PressingQrCodes
 npm run CompletionVoucher
 npm run CompletionQrCodes
 
-cp -r ./publicDir/* ../CrudGenV2/public/Laundry/Factory
+cp -r ./publicDir/* ../CrudGenV3/public/Laundry/Factory
 
-cd ../CrudGenV2
+cd ../CrudGenV3

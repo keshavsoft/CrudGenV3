@@ -26,6 +26,6 @@ call npm run Admin-AdminAllDays-CommonConfig-QrCode-AsArray
 
 call npm run Branch-Today-Orders
 
-xcopy .\publicDir ..\CrudGenV2\public\Laundry /h /i /c /k /e /r /y
+xcopy .\publicDir ..\CrudGenV3\public\Laundry /h /i /c /k /e /r /y
 
-cd ..\CrudGenV2
+cd ..\CrudGenV3

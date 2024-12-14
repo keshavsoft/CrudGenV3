@@ -12,9 +12,9 @@ npm run CreateStatic
 npm run UnProtected-CreateStatic
 
 # Copy files with the same options as the xcopy command
-cp -r ./publicDir/TableShowFromJs ../CrudGenV2/public/Students/TableShowFromJs
-cp -r ./publicDir/Protected/Create/Static ../CrudGenV2/public/Students/Protected/Create/Static
-cp -r ./publicDir/UnProtected/Create/Static ../CrudGenV2/public/Students/UnProtected/Create/Static
+cp -r ./publicDir/TableShowFromJs ../CrudGenV3/public/Students/TableShowFromJs
+cp -r ./publicDir/Protected/Create/Static ../CrudGenV3/public/Students/Protected/Create/Static
+cp -r ./publicDir/UnProtected/Create/Static ../CrudGenV3/public/Students/UnProtected/Create/Static
 
 cd ../FrontEndForClients
 
@@ -22,6 +22,6 @@ cd ../FrontEndForClients
 # npm run Students
 
 # Copy the Students directory
-cp -r ./publicDir/Students ../CrudGenV2/public/Students
+cp -r ./publicDir/Students ../CrudGenV3/public/Students
 
-cd ../CrudGenV2
+cd ../CrudGenV3
