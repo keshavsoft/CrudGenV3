@@ -87,20 +87,7 @@ This project focuses on automating crudBD operations for JSON files, making it e
    ```
    npm run start
    ```
-
  
-  
-#### **run the below commands to generate them** 
-- **Backend:** run KCode/ForBatV7/Backend.js
-- **Database:** run KCode/ForBatV7/Database.js
-- **Frontend:** run npm run home
-
-#### **run the batch files for windows** 
-- **Batch File:** run fbd.bat
-
-#### **run the below commands to see the output** 
-- run npm run start
-
 #### **Key Features** 
 - **Dynamic Schema Handling:** Define table schemas using JSON files and dynamically generate crudBD operations.
 - **Cross-Platform Compatibility:** Compatible with Windows, Mac, and Linux operating systems.
@@ -200,35 +187,6 @@ DataSchema define your schema
 crudBDGenerator/Config.json is the configuration file
 
 the meaning of the repo
-
-crudBD    ``crudBD ``<br>
-Gen     ``Generate`` <br>
-FBD     ``Frontend, Backend and Database`` <br>
-All       ``Selection at 3 stages`` <br>
-
-UI or FrontEnd repository ``https://github.com/keshavsoft/UiAsHtml``
-
-
-for Source only (src), to test the application 
-
-1. Create a folder and navigate into it using the command prompt.
-
-2. Clone the repository
-   ```
-   git clone https://github.com/keshavsoft/crudBD
-   ```
-3. Change Directory to crudBDGenByPath or Open the cloned folder, navigate to crudBD, and open the command prompt.
-   ```
-    cd crudBD
-   ```
-4. Run the batch file (For Windows)
-   ```
-   Simple.bat
-   ```
- 5. For Executing:
-   ```
-      npm run dev
-   ```
 
 24 Feb 2024
 
