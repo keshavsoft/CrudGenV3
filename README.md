@@ -73,11 +73,11 @@ This project focuses on automating crudBD operations for JSON files, making it e
    ```
 6. Run the below command to get Backend generated
    ```
-   node .\KCode\ForBatV6\Backend.js
+   node .\KCode\ForBatV7\Backend.js
    ```
 7. Run the below command to get Database created
    ```
-   node .\KCode\ForBatV6\Database.js
+   node .\KCode\ForBatV7\Database.js
    ```
 8. Run the below command to get Frontend generated
    ```
@@ -91,8 +91,8 @@ This project focuses on automating crudBD operations for JSON files, making it e
  
   
 #### **run the below commands to generate them** 
-- **Backend:** run KCode/ForBatV6/Backend.js
-- **Database:** run KCode/ForBatV6/Database.js
+- **Backend:** run KCode/ForBatV7/Backend.js
+- **Database:** run KCode/ForBatV7/Database.js
 - **Frontend:** run npm run home
 
 #### **run the batch files for windows** 
