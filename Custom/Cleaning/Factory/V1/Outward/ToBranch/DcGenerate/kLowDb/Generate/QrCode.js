@@ -20,14 +20,11 @@ let StartFunc = ({ inId, inFactory }) => {
 
     for (const [key, value] of Object.entries(result)) {
         const LoopinsieinsertPk = createDC({ inBranchName: key, inFactory: LocalFactoryName, inId: LocalVouherPk });
-
         value.VoucherRef = LoopinsieinsertPk;
-
         FactoryOut_QrCodeScan({ inBulkData: value })
     };
 
     LocalReturnData.KTF = true;
-
     return LocalReturnData;
 };
 
