@@ -64,5 +64,9 @@
       "type": "MONTH",
       "isRequired": true,
       "title": "Year of Passout"
+    },
+    "EntranceRank": {
+      "type": "NUMBER",
+      "allowNull": false
     }
   }

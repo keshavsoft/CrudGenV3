@@ -8,7 +8,7 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanDat
         const LoopInsideFindPressingRejectScan = inPressingRejectScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
         const LoopInsideFindCompletionScan = inCompletionScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
 
-        return {
+        let LoopInsideReturnObject = {
             QrCodeId: loopQr.pk,
             ItemName: loopQr.ItemName,
             Rate: loopQr.Rate,
@@ -48,16 +48,25 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanDat
             PressingRejectScan_DCDate: LoopInsideFindPressingRejectScan?.DCDate,
             PressingRejectScan_FactoryName: LoopInsideFindPressingRejectScan?.FactoryName,
 
-            BranchName: loopQr.BookingData.OrderData.BranchName,
-            TimeSpan: TimeSpan({ DateTime: loopQr.BookingData.OrderData.Currentdateandtime })
+            BranchName: loopQr.BookingData.OrderData.BranchName
         };
+
+        // if (loopQr.pk === 25) {
+        //     console.log("aaaaaaa : ", loopQr);
+        // };
+
+        // LoopInsideReturnObject.TimeSpan = TimeSpan({ inDateTime: loopQr.BookingData.OrderData.Currentdateandtime });
+        LoopInsideReturnObject.TimeSpan = TimeSpan({ inDateTime: loopQr.DateTime });
+
+        return LoopInsideReturnObject;
     });
 
     return jVarLocalReturnObject;
 };
 
-function TimeSpan({ DateTime }) {
-    var diffMs = new Date() - new Date(DateTime);
+function TimeSpan({ inDateTime }) {
+    let LocalPresentData = new Date();
+    var diffMs = LocalPresentData - new Date(inDateTime);
     var diffMonths = Math.floor(diffMs / 2629800000); // approximate months (30.44 days)
     var diffDays = Math.floor((diffMs % 2629800000) / 86400000);
     var diffHrs = Math.floor((diffMs % 86400000) / 3600000);
