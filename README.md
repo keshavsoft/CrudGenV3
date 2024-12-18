@@ -8,11 +8,11 @@ Create Front end, back end and database from given schema
 - [Overview](#Overview)
 - [Key Locations](#keyLocations)
 - [Installation](#installation)
+- [advanced installation](#advancedinstallation)
 - [BackEnd Only](#BackEnd)
 - [Folder Structure](#folder-structure)
 - [Purpose of the Project](#purpose-of-the-project)
 - [Important Points](#important-points)
-- [advanced installation](#advancedinstallation)
 - [end points testing](#testendpoints)
 - [visual studio code extensions](#vscodeextensions)
  
@@ -103,7 +103,7 @@ This project focuses on automating crudBD operations for JSON files, making it e
 
 1. Delete all the folders starting with bin ( which is the BackEnd code).
 
-2. run the KCode/Backend.js
+2. node .\KCode\ForBatV7\Backend.js
    
 3. Now all the bin folders only are created ( which is the BackEnd code).
 
