@@ -33,7 +33,7 @@ let jFLocalMergeFunc = ({ inQrData, inScandata, inBranchDC }) => {
             BranchScan: matchBranchScan,
             VocherNumber: LoalBranchDCFindeData?.pk,
             VoucherDate: LoalBranchDCFindeData?.Date,
-            TimeSpan: TimeSpan({ DateTime: loopQr.BookingData.OrderData.Currentdateandtime })
+            TimeSpan: TimeSpan({ DateTime: loopQr.DateTime })
         };
     });
     return jVarLocalReturnObject;
