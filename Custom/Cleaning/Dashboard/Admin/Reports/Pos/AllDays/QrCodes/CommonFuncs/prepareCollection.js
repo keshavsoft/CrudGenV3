@@ -49,7 +49,7 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanDat
             PressingRejectScan_FactoryName: LoopInsideFindPressingRejectScan?.FactoryName,
 
             BranchName: loopQr.BookingData.OrderData.BranchName,
-            TimeSpan: TimeSpan({ DateTime: loopQr.BookingData.OrderData.Currentdateandtime })
+            TimeSpan: TimeSpan({ DateTime: loopQr.DateTime })
         };
     });
 

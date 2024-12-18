@@ -25,10 +25,9 @@ let jFLocalMergeFunc = ({ inQrData, inScandata }) => {
             location: loopQr.location,
             OrderDateTime: new Date(loopQr.BookingData.OrderData.Currentdateandtime).toLocaleDateString('en-GB'),
             Status: match,
-            TimeSpan: TimeSpan({ DateTime: loopQr.BookingData.OrderData.Currentdateandtime })
+            TimeSpan: TimeSpan({ DateTime: loopQr.DateTime })
         };
     });
-
 
     return jVarLocalReturnObject;
 };
