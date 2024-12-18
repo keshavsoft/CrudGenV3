@@ -35,7 +35,7 @@ let jFLocalInsertAggValues = ({ inData }) => {
         element[1].AggValues = {};
         element[1].IsSettled = false;
         element[1].IsItems = false;
-        element[1].TimeSpan = TimeSpan(element[1].OrderData.Currentdateandtime);
+        element[1].TimeSpan = TimeSpan(element[1].DateTime);
 
         if (Object.values(element[1].ItemsInOrder).map(p => p.Pcs).reduce((acc, val) => acc + parseInt(val), 0) > 0) {
             element[1].IsItems = true;
