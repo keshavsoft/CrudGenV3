@@ -1,17 +1,21 @@
-import { StartFunc as StartFuncPullData } from "../PullData/EntryFile.js";
+// import { StartFunc as StartFuncPullData } from "../PullData/EntryFile.js";
+import { StartFunc as StartFuncReturnDbObject } from "../../../../CommonPull/kLowDb/CommonFuncs/ReturnDbObject.js";
 
-let StartFunc = async ({ inId }) => {
+let StartFunc = async ({ inId, inKey, inSubId }) => {
+  // router.delete('/:Id/:inKey/:SubId', DeleteFuncmiddleware, DeleteFunc);
   let LocalId = parseInt(inId);
-  
-  let LocalStartFuncPullData = StartFuncPullData();
+  const LocalKey = inKey;
+  const LocalSubId = inSubId;
+
+  let LocalStartFuncPullData = StartFuncReturnDbObject();
 
   if (LocalStartFuncPullData === false) {
-      LocalReturnData.KReason = LocalStartFuncPullData.KReason;
-      return LocalReturnData;
+    LocalReturnData.KReason = LocalStartFuncPullData.KReason;
+    return LocalReturnData;
   };
 
-  const LocalTableSchema = LocalStartFuncPullData.inTableSchema;
-  const db = LocalStartFuncPullData.inDb;
+  const db = LocalStartFuncPullData.dbObject;
+  db.read();
   let LocalarrayOfObjects = db.data;
 
   const LocalFindId = LocalarrayOfObjects.find((obj) => obj.UuId === LocalId);
@@ -20,27 +24,19 @@ let StartFunc = async ({ inId }) => {
     return await { KTF: false, KReason: `Id : ${LocalId} not found in data` };
   };
 
-  let LocalArrayAfterDelete = deleteObjectById({
-    inCollection: LocalarrayOfObjects,
-    inId: LocalId,
-  });
+  if (LocalKey in LocalFindId === false) {
+    return await { KTF: false, KReason: `Key : ${LocalKey} not found in Row` };
+  };
 
-  db.data = LocalArrayAfterDelete;
+  if (LocalSubId in LocalFindId[LocalKey] === false) {
+    return await { KTF: false, KReason: `SubId : ${LocalSubId} not found in Row:Key` };
+  };
+
+  delete LocalFindId[LocalKey][LocalSubId];
+
   db.write();
 
   return await true;
-};
-
-let deleteObjectById = ({ inCollection, inId }) => {
-  let LocalCollection = inCollection;
-  let LocalId = inId;
-
-  LocalCollection.splice(
-    LocalCollection.findIndex((a) => a.UuId === LocalId),
-    1
-  );
-
-  return LocalCollection;
 };
 
 export { StartFunc };

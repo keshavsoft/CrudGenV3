@@ -15,6 +15,7 @@ let StartFunc = ({ inTablesCollection, inTo, inFrom, inConfigJson, inEndPointsNe
     if (inEndPointsNeeded.includes("Bulk")) Bulk({ inTablesCollection, inTo, inConfigJson });
     if (inEndPointsNeeded.includes("Images")) Images({ inTablesCollection, inTo, inConfigJson });
     if (inEndPointsNeeded.includes("Alter")) Alter({ inTablesCollection, inTo, inConfigJson });
+    if (inEndPointsNeeded.includes("SubTable")) SubTable({ inTablesCollection, inTo, inConfigJson });
 
     // Create({ inTablesCollection, inTo, inConfigJson });
     // Alter({ inTablesCollection, inTo, inConfigJson });
