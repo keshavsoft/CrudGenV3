@@ -67,6 +67,11 @@
     },
     "EntranceRank": {
       "type": "NUMBER",
-      "allowNull": false
+      "allowNull": false,
+      "isRequired": true
+    },
+    "GitLink": {
+      "type": "STRING",
+      "allowNull": true
     }
   }
