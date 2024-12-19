@@ -60,8 +60,8 @@
       "type": "STRING",
       "defaultValue": false
     },
-    "YearPassout": {
-      "type": "MONTH",
+    "YearPassOut": {
+      "type": "NUMBER",
       "isRequired": true,
       "title": "Year of Passout"
     },
