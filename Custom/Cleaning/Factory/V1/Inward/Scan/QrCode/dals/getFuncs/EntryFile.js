@@ -71,7 +71,14 @@ let GetDCQrReturnFunc = ({ inFactory, inId }) => {
     return LocalFromLowDb;
 };
 
+
+let GetAggregateFunc = ({ inFactory }) => {
+    return "Harini"
+    // let LocalFromLowDb = GetAggregateById({ inFactory, inId });
+    // return LocalFromLowDb;
+};
+
 export {
     GetFunc, GetPendingFunc, GetScannedFunc, GetRowDataFunc, GetReturnsFunc, GetRowQrDataFunc, GetRowCountFunc,
-    GetFromBranchDcWiseItemsFunc, GetToScanPendingFunc, GetDCQrReturnFunc
+    GetFromBranchDcWiseItemsFunc, GetToScanPendingFunc, GetDCQrReturnFunc, GetAggregateFunc
 };
