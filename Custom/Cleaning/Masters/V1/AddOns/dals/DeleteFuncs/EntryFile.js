@@ -1,8 +1,7 @@
-// import { StartFunc as StartFuncwriteFile } from '../../kLowDb/DeleteFromFile/DeleteRow.js';
+import { StartFunc as RowDeletebyPk } from '../../kLowDb/Delete/RowDeletebyPk.js';
 
 let DeleteFunc = ({ inId }) => {
-    return inId;
-    // return StartFuncwriteFile({inId});
+    return RowDeletebyPk({inId});
 };
 
 export { DeleteFunc };
