@@ -5,6 +5,7 @@ let StartFunc = async ({ inId }) => {
 
   let LocalMastersAddOnsData = MastersAddOns();
   let db = LocalMastersAddOnsData.dbObject;
+  db.read();
   let LocalarrayOfObjects = db.data;
 
   const LocalFindId = LocalarrayOfObjects.find((obj) => obj.pk === LocalId);
