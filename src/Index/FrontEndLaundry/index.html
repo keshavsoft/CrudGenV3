@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>laundry and dry clean</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
+    <link href="css/owl.carousel.min.css" rel="stylesheet">
+    <link href="css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="services">
+        <div class="container ">
+            <h4 class="main-heading text-center" data-aos="zoom-in" data-aos-delay="100">Laundry</h4>
+            <h5 class="sub-heading text-center" data-aos="zoom-in" data-aos-delay="300"> swachh bharat And swachh
+                Vasthra</h5>
+            <div class="row mt-5">
+                <div id="service-carousel" class="owl-carousel owl-theme">
+                    <div class="item d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="service-box d-flex flex-column align-items-center">
+                            <div class="service-img-box">
+                                <div class="service-img">
+                                    <img src="img/Admin Hu.png">
+                                    <div class="service-icon">
+                                        <img src="img/admin.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-text">
+                                <h4>Admin</h4>
+                                <p>The admin oversees branch operations, ensuring all orders, QR codes, and accounts are
+                                    correctly managed and maintained for efficiency and accuracy.</p>
+                                <a class="btn btn-primary main-btn mt-4" target="_blank"
+                                    href="./laundry.html">Log In</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="service-box d-flex flex-column align-items-center">
+                            <div class="service-img-box">
+                                <div class="service-img">
+                                    <img src="img/wash-fold-img.webp">
+                                    <div class="service-icon">
+                                        <img src="img/dry-clean-icon.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-text">
+                                <h4>Branch</h4>
+                                <p>Branch handles customer clothes, creates orders, generates QR codes, sends laundry to
+                                    the factory, receives processed clothes, and delivers them.</p>
+                                <a class="btn btn-primary main-btn mt-4" target="_blank"
+                                    href="/LoginUsers/HtmlFiles/login.html">Log In</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="service-box d-flex flex-column align-items-center">
+                            <div class="service-img-box">
+                                <div class="service-img">
+                                    <img src="img/dry-clean-img.webp">
+                                    <div class="service-icon">
+                                        <img src="img/leave-us.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-text">
+                                <h4>Entry Factory</h4>
+                                <p>The factory receives clothes from branches via QR codes, inspects their condition,
+                                    and either sends them for washing or returns them to the branch.</p>
+                                <a class="btn btn-primary main-btn mt-4" target="_blank"
+                                    href="#" id="LaundryfactoryId">Log In</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="service-box d-flex flex-column align-items-center">
+                            <div class="service-img-box">
+                                <div class="service-img">
+                                    <img src="img/Ironing-pressing-img.webp">
+                                    <div class="service-icon">
+                                        <img src="img/Ironing-pressing-icon.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-text">
+                                <h4>Wash & Press</h4>
+                                <p>The factory efficiently handles washing and pressing, ensuring clothes are returned
+                                    to branches clean, pressed, and ready for delivery.</p>
+                                <a class="btn btn-primary main-btn mt-4" target="_blank"
+                                    href="#" id="LaundryWashingId">Log In</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+
+    <script src="js/owl.carousel.js"></script>
+
+    <script src="js/aos.js"></script>
+
+    <script type="text/javascript">
+        function aos_init() {
+            AOS.init({
+                duration: 2500,
+                once: true
+            });
+        }
+        $(window).on('load', function () {
+            aos_init();
+        });
+    </script>
+    <script>
+        $('#service-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            autoplay: true,
+            dots: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                767: {
+                    items: 1
+                },
+                1024: {
+                    items: 2
+                },
+                1200: {
+                    items: 3
+
+                }
+            }
+        })
+
+
+        $('#testimonial-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            autoplay: false,
+            dots: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                992: {
+                    items: 1
+                },
+                1200: {
+                    items: 2
+                }
+            }
+        })
+    </script>
+    <script>
+        const LaundryRedirect = () => {
+            localStorage.setItem("FactoryName", "Vizag")
+            window.location.href = "/Laundry/Factory/Inward/FromBranch/FromBranchVoucher/"
+
+        };
+
+        let jVarLocalLaundryfactoryId = document.getElementById('LaundryfactoryId');
+        jVarLocalLaundryfactoryId.addEventListener("click", LaundryRedirect);
+
+
+    </script>
+    <script>
+        const LaundryWashingRedirect = () => {
+            localStorage.setItem("FactoryName", "Vizag")
+            window.location.href = "/Laundry/Factory/Process/WashingVoucher/"
+
+        };
+
+        let jVarLocalLaundryWashingId = document.getElementById('LaundryWashingId');
+        jVarLocalLaundryWashingId.addEventListener("click", LaundryWashingRedirect);
+
+
+    </script>
+
+</body>
+
+</html>
