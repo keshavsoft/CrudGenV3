@@ -1,7 +1,8 @@
 import {
     GetFunc as GetFuncRepo,
     GetQrStatusFunc as GetQrStatusFuncRepo,
-    GetRowDataFunc as GetRowDataFuncRepo
+    GetRowDataFunc as GetRowDataFuncRepo,
+    GetAggregateFunc as GetAggregateFuncRepo,
 } from '../../repos/getFuncs/EntryFile.js';
 
 let GetFunc = async (req, res) => {
@@ -28,6 +29,14 @@ let GetRowDataFunc = async (req, res) => {
     res.status(200).json(LocalFromRepo);
 };
 
+let GetAggregateFunc = async (req, res) => {
+    let LocalParams = req.params;
+    let Localid = LocalParams.id;
+    let LocalFromRepo = GetAggregateFuncRepo({ inId: Localid });
+
+    res.status(200).json(LocalFromRepo);
+};
+
 export {
-    GetFunc, GetQrStatusFunc, GetRowDataFunc
+    GetFunc, GetQrStatusFunc, GetRowDataFunc, GetAggregateFunc
 };

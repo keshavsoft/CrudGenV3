@@ -14,6 +14,11 @@ let GetRowDataFunc = ({ inId }) => {
     return GetRowData({ inId });
 };
 
+let GetAggregateFunc = ({ inId }) => {
+    return "KeshavSoft"
+    // return GetAggregate({ inId });
+};
+
 export {
-    GetFunc, GetQrStatusFunc, GetRowDataFunc
+    GetFunc, GetQrStatusFunc, GetRowDataFunc, GetAggregateFunc
 };
