@@ -32,7 +32,8 @@ const LocalFuncInsert = ({ inDataToInsert, inItemsData }) => {
     let numberArray = Object.keys(LocalInData).map(Number);
 
     let MaxPk = (Math.max(...numberArray, 0) + 1);
-    LocalFuncGenerateItemSerial({ inDataToInsert, inItemsData })
+    //commented out for now by Keshav this should be generalised code
+    // LocalFuncGenerateItemSerial({ inDataToInsert, inItemsData })
     LocalInData[MaxPk] = inDataToInsert;
 };
 

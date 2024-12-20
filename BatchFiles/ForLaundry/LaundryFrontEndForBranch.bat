@@ -1,5 +1,3 @@
-call npm run Laundry
-
 @echo off
 cd ..\LaundryFrontEndForBranch
 
