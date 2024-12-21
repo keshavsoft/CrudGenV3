@@ -215,5 +215,38 @@
     "isMailValidated": true,
     "DataPk": 318,
     "UuId": "07714eba-d853-413d-a0b0-6a60a8eb8cf8"
+  },
+  {
+    "UserName": "Vizag",
+    "Password": "Vizag",
+    "FactoryName": "Vizag",
+    "BranchMobile": "5746",
+    "UserMobile": "4667",
+    "isAdminValidated": false,
+    "isMailValidated": true,
+    "DataPk": 318,
+    "UuId": "07714eba-d853-413d-a0b0-6a60a8eb8cf8"
+  },
+  {
+    "UserName": "Vzm",
+    "Password": "Vzm",
+    "FactoryName": "Vzm",
+    "BranchMobile": "5746",
+    "UserMobile": "4667",
+    "isAdminValidated": false,
+    "isMailValidated": true,
+    "DataPk": 318,
+    "UuId": "07714eba-d853-413d-a0b0-6a60a8eb8cf8"
+  },
+  {
+    "UserName": "GD",
+    "Password": "GD",
+    "FactoryName": "GD",
+    "BranchMobile": "5746",
+    "UserMobile": "4667",
+    "isAdminValidated": false,
+    "isMailValidated": true,
+    "DataPk": 318,
+    "UuId": "07714eba-d853-413d-a0b0-6a60a8eb8cf8"
   }
 ]
