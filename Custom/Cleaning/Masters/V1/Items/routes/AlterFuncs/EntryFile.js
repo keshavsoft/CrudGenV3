@@ -4,6 +4,6 @@ var router = express.Router();
 
 import { AlterFunc } from '../../controllers/AlterFuncs/EntryFile.js';
 
-router.put('/:Id', AlterFunc);
+router.get('/:Id', AlterFunc);
 
 export { router };

@@ -1,4 +1,4 @@
-PUT  http://localhost:7318/Custom/Cleaning/Masters/V1/Customers/2
+PUT  http://localhost:7318/Custom/Cleaning/Masters/V1/Customers/1
 Content-Type: application/json
 
-{"CustomerName":"Ganesh","Mobile":8888880000,"GSTNumber":"","City":"","Occupation":"","CompanyName":"","BranchName":""}
+{"CustomerName":"Ramesh","Mobile":9888880005,"GSTNumber":"","City":"","Occupation":"","CompanyName":"","BranchName":""}
