@@ -267,8 +267,9 @@ a:hover {
 /*services*/
 
 #services {
-    padding: 100px 0;
-    height: 980px;
+    padding: 10px 0;
+    height: 810px;
+    overflow: hidden;
     background: #4e16860d;
 }
 
@@ -325,7 +326,7 @@ a:hover {
 }
 
 .owl-stage-outer {
-    padding: 140px 0;
+    padding: 120px 0;
 }
 
 #services .main-btn {
