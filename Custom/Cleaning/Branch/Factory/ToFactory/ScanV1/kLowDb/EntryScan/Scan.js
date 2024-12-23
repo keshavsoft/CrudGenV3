@@ -8,9 +8,10 @@ let StartFunc = ({ inBranch, inDataInsert, inQrCodeId, inVoucherRef }) => {
     let LocalQrId = inQrCodeId;
     let LocalDc = inVoucherRef;
     let LocalDataInsert = inDataInsert;
+    let LocalFactoryName = inDataInsert.DCFactory;
     let LocalReturnData = { KTF: false };
 
-    let LocalCheckQrCodes = StartFuncCheckQrCodes({ inTable: LocalTable, inQrId: LocalQrId });
+    let LocalCheckQrCodes = StartFuncCheckQrCodes({ inTable: LocalTable, inQrId: LocalQrId, InFactoryName: LocalFactoryName });
 
     if (LocalCheckQrCodes.KTF === false) {
         LocalReturnData.KReason = LocalCheckQrCodes.KReason
@@ -35,7 +36,7 @@ let StartFunc = ({ inBranch, inDataInsert, inQrCodeId, inVoucherRef }) => {
     LocalReturnData.ScanNo = localInsert.ScanNo;
     LocalReturnData.QrData = LocalCheckQrCodes.JsonData;
     LocalReturnData.KTF = true;
-    
+
     return LocalReturnData;
 };
 
