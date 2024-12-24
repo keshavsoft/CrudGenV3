@@ -3,6 +3,7 @@ import { StartFuncForBookings as StartFuncCheckQrCodes } from "./Check/CheckQrCo
 import { StartFunc as CheckBrcnchScan } from "./Check/CheckBrcnchScan.js";
 import { StartFunc as WashingCancelScan } from "./Check/WashingCancelScan.js";
 import { StartFunc as PressingCancelScan } from "./Check/PressingCancelScan.js";
+import { StartFunc as WashingScan } from "./Check/WashingScan.js";
 
 let StartFunc = ({ inFactory, inDataInsert, inQrCodeId, inVoucherRef }) => {
 
@@ -39,6 +40,14 @@ let StartFunc = ({ inFactory, inDataInsert, inQrCodeId, inVoucherRef }) => {
         LocalReturnData.KReason = LocalCheckPressingCancelScan.KReason
         return LocalReturnData;
     };
+
+    let LocalCheckWashingScan = WashingScan({ inQrCodeId: LocalQrId });
+
+    if (LocalCheckWashingScan.KTF === false) {
+        LocalReturnData.KReason = LocalCheckWashingScan.KReason
+        return LocalReturnData;
+    };
+
     let localInsert = StartFuncwriteFileFromModal({ inDataToInsert: LocalDataInsert, inVoucherRef: LocalDc });
 
     if (localInsert.KTF === false) {
