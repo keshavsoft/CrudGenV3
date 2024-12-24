@@ -39,13 +39,13 @@ let StartFunc = ({ inFactory, inId }) => {
   return LocalArrayReverseData;
 };
 
-let jFLocalMergeFunc = ({ inQrData, inEntryScan ,inPressRewash}) => {
+let jFLocalMergeFunc = ({ inQrData, inEntryScan, inPressRewash }) => {
   let jVarLocalReturnObject = inEntryScan
     .map((loopScan) => {
       const matchedRecord = inQrData.find(
         (loopQr) => loopQr.pk == loopScan.QrCodeId
       );
-let LocalPress_ReWashScan= inPressRewash.some(Re=>Re.QrCodeId==loopScan.QrCodeId );
+      let LocalPress_ReWashScan = inPressRewash.some(Re => Re.QrCodeId == loopScan.QrCodeId && Re.ReWash == true);
       return {
         OrderNumber: matchedRecord?.GenerateReference.ReferncePk,
         OrderDate: new Date(
@@ -56,7 +56,7 @@ let LocalPress_ReWashScan= inPressRewash.some(Re=>Re.QrCodeId==loopScan.QrCodeId
         ).toLocaleDateString("en-GB"),
         ItemName: matchedRecord?.ItemName,
         Rate: matchedRecord?.Rate,
-        Rewash:LocalPress_ReWashScan,
+        Rewash: LocalPress_ReWashScan,
         VoucherNumber: loopScan?.VoucherRef,
         QrCodeId: loopScan.QrCodeId,
         DCDate: new Date(loopScan?.Date).toLocaleDateString("en-GB"),
