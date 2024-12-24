@@ -1,12 +1,13 @@
-// import { StartFunc as RowDeletebyPk } from '../../kLowDb/Delete/RowDeletebyPk.js';
+import { StartFunc as ItemsDeleteRow } from '../../kLowDb/Delete/ItemDeleteRow.js';
+import { StartFunc as AddOnDeleteRow } from '../../kLowDb/Delete/AddOnDeleteRow.js';
 
-let mainTableDeleteFunc = ({ inId, inBranch }) => {
+let mainTableDeleteFunc = ({ inId, inSubId, inBranch }) => {
 
-    return { inId, inBranch };
+    return ItemsDeleteRow({ inId, inSubId, inBranch });
 };
 let addOnTableDeleteFunc = ({ inId, inBranch, inmainId }) => {
 
-    return { inId, inBranch, inmainId };
+    return AddOnDeleteRow({ inId, inBranch, inmainId });
 };
 
 export { mainTableDeleteFunc, addOnTableDeleteFunc };
