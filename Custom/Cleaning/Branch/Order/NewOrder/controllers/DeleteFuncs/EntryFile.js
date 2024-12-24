@@ -3,9 +3,10 @@ import { mainTableDeleteFunc as mainTableDeleteFuncRepo, addOnTableDeleteFunc as
 let mainTableDeleteFunc = async (req, res) => {
     let LocalParams = req.params;
     let LocalId = LocalParams.Id;
+    let LocalSubId = LocalParams.inSubId;
     let LocalBranch = LocalParams.inBranch;
 
-    let LocalFromRepo = await mainTableDeleteFuncRepo({ inId: LocalId, inBranch: LocalBranch });
+    let LocalFromRepo = await mainTableDeleteFuncRepo({ inId: LocalId, inSubId: LocalSubId, inBranch: LocalBranch });
 
     if (LocalFromRepo.KTF === false) {
         res.status(500).send(LocalFromRepo.KReason);
@@ -19,7 +20,6 @@ let addOnTableDeleteFunc = async (req, res) => {
     let LocalId = LocalParams.Id;
     let LocalBranch = LocalParams.inBranch;
     let LocalmainId = LocalParams.mainId;
-
 
     let LocalFromRepo = await addOnTableDeleteFuncRepo({ inId: LocalId, inBranch: LocalBranch, inmainId: LocalmainId });
 
