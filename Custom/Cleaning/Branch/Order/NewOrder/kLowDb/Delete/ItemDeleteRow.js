@@ -4,7 +4,7 @@ let StartFunc = async ({ inBranch, inId, inSubId }) => {
   let LocalBranch = inBranch;
   let LocalId = parseInt(inId);
   const LocalKey = "ItemsInOrder";
-  const LocalSubId = inSubId;
+  const LocalSubId = parseInt(inSubId);
 
   let LocalStartFuncPullData = StartFuncReturnDbObject({ inTable: LocalBranch });
 
@@ -12,28 +12,38 @@ let StartFunc = async ({ inBranch, inId, inSubId }) => {
   db.read();
   let LocalarrayOfObjects = db.data;
 
-  let LocalFindId = LocalarrayOfObjects.find((obj) => obj.UuId === LocalId);
+  // Find the last object in the array
+  let LocalFindId = LocalarrayOfObjects[LocalarrayOfObjects.length - 1];
 
-  if (LocalFindId === undefined) {
-    return await { KTF: false, KReason: `Id : ${LocalId} not found in data` };
+  if (LocalFindId.UuId !== LocalId) {
+    return { KTF: false, KReason: `Id : ${LocalId} not Last Order data` };
   };
 
-  if (LocalKey in LocalFindId === false) {
-    return await { KTF: false, KReason: `Key : ${LocalKey} not found in Row` };
-  };
+  if (!LocalFindId) {
+    return { KTF: false, KReason: `Id : ${LocalId} not found in data` };
+  }
 
-  if (LocalSubId in LocalFindId[LocalKey] === false) {
-    return await { KTF: false, KReason: `SubId : ${LocalSubId} not found in Row:Key` };
-  };
+  if (!(LocalKey in LocalFindId)) {
+    return { KTF: false, KReason: `Key : ${LocalKey} not found in Row` };
+  }
 
-  for (let key in LocalFindId.AddOnData) { if (LocalFindId.AddOnData[key].AddOnItemSerial == LocalSubId) { delete LocalFindId.AddOnData[key]; } }
+  if (!(LocalSubId in LocalFindId[LocalKey])) {
+    return { KTF: false, KReason: `SubId : ${LocalSubId} not found in Row:Key` };
+  }
 
+  // Remove related AddOnData
+  for (let key in LocalFindId.AddOnData) {
+    if (LocalFindId.AddOnData[key].AddOnItemSerial === LocalSubId) {
+      delete LocalFindId.AddOnData[key];
+    }
+  }
+
+  // Remove specified item from ItemsInOrder
   delete LocalFindId[LocalKey][LocalSubId];
 
   db.write();
 
-  return await true;
+  return { KTF: true };
 };
 
 export { StartFunc };
-// StartFunc({ inBranch: "KKD", inId: 1, inKey: "ItemsInOrder", inSubId: "1" })

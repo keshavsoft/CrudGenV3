@@ -11,8 +11,12 @@ let StartFunc = async ({ inBranch, inmainId, inId }) => {
   const db = LocalStartFuncPullData.dbObject;
   db.read();
   let LocalarrayOfObjects = db.data;
-
-  let LocalFindId = LocalarrayOfObjects.find((obj) => obj.UuId === LocalId);
+  let LocalFindId = LocalarrayOfObjects[LocalarrayOfObjects.length - 1];
+  // let LocalFindId = LocalarrayOfObjects.find((obj) => obj.UuId === LocalId);
+  
+  if (LocalFindId.UuId !== LocalId) {
+    return { KTF: false, KReason: `Id : ${LocalId} not Last Order data` };
+  };
 
   if (LocalFindId === undefined) {
     return await { KTF: false, KReason: `Id : ${LocalId} not found in data` };
