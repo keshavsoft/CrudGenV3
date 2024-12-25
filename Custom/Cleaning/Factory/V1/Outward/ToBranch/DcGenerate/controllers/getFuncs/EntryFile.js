@@ -1,13 +1,15 @@
 import { GetIdFunc as GetIdFuncRepo } from '../../repos/getFuncs/EntryFile.js';
 
-let GetIdFunc = (req, res) => {
-    let LocalParams = req.params;
-    let LocalId = LocalParams.inId;
-    let LocalFactory = LocalParams.inFactory;
+const GetIdFunc = (req, res) => {
+    const { inId: LocalId, inFactory: LocalFactory } = req.params;
 
-    let LocalFromRepo = GetIdFuncRepo({ inId: LocalId, inFactory: LocalFactory });
+    const LocalFromRepo = GetIdFuncRepo({ inId: LocalId, inFactory: LocalFactory });
 
-    res.json(LocalFromRepo);
+    if (!LocalFromRepo.KTF) {
+        return res.status(401).json(LocalFromRepo.KReason);
+    }
+
+    return res.json(LocalFromRepo);
 };
 
 export { GetIdFunc };
