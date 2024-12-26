@@ -279,6 +279,7 @@ a:hover {
     margin-top: 70px;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     align-items: center;
 }
@@ -286,8 +287,10 @@ a:hover {
 #services .service-text h4 {
     color: #2f0a53;
     font-size: 22px;
-    font-family: 'Poppins-SemiBold';
+    margin: auto;
     margin-bottom: 20px;
+    font-family: 'Poppins-SemiBold';
+    
 }
 
 #services .service-img .service-icon {
