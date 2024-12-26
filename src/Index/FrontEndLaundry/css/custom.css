@@ -297,15 +297,15 @@ a:hover {
     height: 110px;
     width: 110px;
     display: flex;
+    margin: auto;
     justify-content: center;
     align-items: center;
     background-color: #fff;
     border: 1px solid #4e1686;
     border-radius: 50%;
-    position: absolute;
-    position: absolute;
-    bottom: -50px;
-    left: 29%;
+    position: relative;
+    bottom: 60px;
+    
 }
 
 #services .service-box {
@@ -329,7 +329,7 @@ a:hover {
 }
 
 .owl-stage-outer {
-    padding: 120px 0;
+    padding: 90px 0;
 }
 
 #services .main-btn {
