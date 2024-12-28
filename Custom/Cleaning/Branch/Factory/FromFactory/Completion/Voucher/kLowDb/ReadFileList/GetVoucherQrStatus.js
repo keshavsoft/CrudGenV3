@@ -29,7 +29,8 @@ const MergeFunc = ({ BranchDc, EntryCancelScan, FromFactoryCancelScan }) => {
             Sent,
             Scanned,
             Pending: Sent - Scanned,
-            TimeSpan: TimeSpan(dc.DateTime)
+            TimeSpan: TimeSpan(dc.DateTime),
+            DateTime: new Date(dc.DateTime).toLocaleDateString('en-GB')// hh:mm:ss format
         };
     });
 };
