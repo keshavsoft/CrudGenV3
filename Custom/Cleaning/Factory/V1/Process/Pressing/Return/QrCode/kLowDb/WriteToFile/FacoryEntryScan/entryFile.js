@@ -9,9 +9,10 @@ let StartFunc = ({ inFactory, inDataInsert }) => {
     let LocalTable = inFactory;
     let LocalQrId = inDataInsert.QrCodeId;
     let LocalDataInsert = inDataInsert;
+    let LocalBranchName = LocalDataInsert?.BranchName;
     let LocalReturnData = { KTF: false };
 
-    let LocalCheckQrCodes = StartFuncCheckQrCodes({ inTable: LocalTable, inQrId: LocalQrId });
+    let LocalCheckQrCodes = StartFuncCheckQrCodes({ inTable: LocalTable, inQrId: LocalQrId, inBranch: LocalBranchName });
 
     if (LocalCheckQrCodes.KTF === false) {
         LocalReturnData.KReason = LocalCheckQrCodes.KReason
