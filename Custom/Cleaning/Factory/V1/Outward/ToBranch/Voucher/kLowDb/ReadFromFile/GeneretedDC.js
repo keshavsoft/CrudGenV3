@@ -8,14 +8,14 @@ let StartFunc = ({ inId, inFactory }) => {
     let LocalFactoryScan = FactoryOut_QrCodeScan();
     let LocalFiterDcData = LocalFactoryOutDc.filter(element => element.RefDC == LocalId && element.FactoryName == LocalFactory);
 
-    return jfMergeData({ inDc: LocalFiterDcData, inQr: LocalFactoryScan });
+    return jfMergeData({ inDc: LocalFiterDcData, inQr: LocalFactoryScan, inFactory: LocalFactory });
 };
 
-const jfMergeData = ({ inDc, inQr }) => {
+const jfMergeData = ({ inDc, inQr, inFactory }) => {
     return inDc.map(element => {
-        
+
         element.DateTime = new Date(element?.DateTime).toLocaleDateString('en-GB'); // dd/mm/yyyy format
-        element.QrCount = inQr.filter(qr => qr.RefDC == element.VoucherRef && qr.BranchName == element.BranchName).length;
+        element.QrCount = inQr.filter(qr => qr.RefDC == element.VoucherRef && qr.BranchName == element.BranchName && qr.FactoryName == inFactory).length;
         return element;
     });
 

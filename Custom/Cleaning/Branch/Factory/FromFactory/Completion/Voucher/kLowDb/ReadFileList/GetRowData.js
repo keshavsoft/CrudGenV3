@@ -17,7 +17,12 @@ const StartFunc = ({ inId }) => {
     return {
         KTF: true,
         QrCount: LocalFilterBranchScanDataCount,
-        AsIs: LocalFilterBranchDcData
+        AsIs: {
+            ...LocalFilterBranchDcData,
+            DateTime: new Date(LocalFilterBranchDcData.DateTime).toLocaleDateString('en-GB')// hh:mm:ss format
+
+        }
+
     };
 };
 
