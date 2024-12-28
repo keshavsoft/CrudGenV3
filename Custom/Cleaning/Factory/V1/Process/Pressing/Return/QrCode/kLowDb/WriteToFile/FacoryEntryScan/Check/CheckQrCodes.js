@@ -17,7 +17,7 @@ const StartFuncForBookings = ({ inTable, inQrId, inBranch }) => {
         return LocalReturnData;
     };
 
-    if (LocalRowNeeded?.location === LocalFactoryName) {
+    if (LocalRowNeeded?.location !== LocalFactoryName) {
         LocalReturnData.KReason = `Not this Factory :${LocalQrId}`
         return LocalReturnData;
     };
