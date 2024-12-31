@@ -6,8 +6,8 @@ import { StartFunc as PressingScan } from "./PressingScan.js";
 import { StartFunc as CompletionScan } from "./CompletionScan.js";
 import { StartFunc as PressingRejectScan } from "./PressingRejectScan.js";
 import { StartFunc as prepareCollection } from "./prepareCollection.js";
-import { StartFunc as EntryCancelScan } from "./EntryCancelScan.js";
 import { StartFunc as Press_ReWashScan } from "./Press_ReWashScan.js";
+import { StartFunc as EntryCancelScan } from "./EntryCancelScan.js";
 
 let StartFunc = () => {
     const QrCodeData = QrCodes();
@@ -17,8 +17,8 @@ let StartFunc = () => {
     const PressingScanData = PressingScan();
     const CompletionScanData = CompletionScan();
     const PressingRejectScanData = PressingRejectScan();
-    const EntryCancelScanData = EntryCancelScan();
     const Press_ReWashScanData = Press_ReWashScan();
+    const EntryCancelScanData = EntryCancelScan();
 
     let jVarLocalTransformedData = prepareCollection({
         inQrData: QrCodeData,
