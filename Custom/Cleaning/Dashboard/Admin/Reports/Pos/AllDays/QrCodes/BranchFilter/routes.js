@@ -11,10 +11,12 @@ import { router as FactoryInwardReturn } from "./6-FactoryInwardReturn/routes.js
 import { router as WashingStart } from "./7-WashingStart/routes.js";
 import { router as WashingReject } from "./8-WashingReject/routes.js";
 import { router as PressingStart } from "./9-PressingStart/routes.js";
-import { router as PressingReject } from "./10-PressingReject/routes.js";
+import { router as PressingReturn } from "./10-PressingReturn/routes.js";
 import { router as CompletionStart } from "./11-CompletionStart/routes.js";
 import { router as LeftInBranch } from "./12-LeftInBranch/routes.js";
 import { router as EntryFactoryReturn } from "./13-EntryFactoryReturn/routes.js"
+import { router as PressingRewash } from "./14-PressingRewash/routes.js"
+
 
 
 router.use("/QrCodes", QrCodes);
@@ -26,9 +28,10 @@ router.use("/FactoryInwardReturn", FactoryInwardReturn);
 router.use("/WashingStart", WashingStart);
 router.use("/WashingReject", WashingReject);
 router.use("/PressingStart", PressingStart);
-router.use("/PressingReject", PressingReject);
+router.use("/PressingReturn", PressingReturn);
 router.use("/CompletionStart", CompletionStart);
 router.use("/LeftInBranch", LeftInBranch);
 router.use("/EntryFactoryReturn", EntryFactoryReturn);
+router.use("/PressingRewash", PressingRewash);
 
 export { router };
