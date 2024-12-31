@@ -1,9 +1,18 @@
+import { StartFunc as MastersCustomers } from "../../CommonFuncs/MastersCustomers.js";
+
 const StartFunc = ({ inDataToInsert, inData, inColumns }) => {
     let LocalInData = inData;
     let LocalReturnData = { KTF: false, JSONFolderPath: "", CreatedLog: {} };
-    let LocalDefalultKeys = LocalFuncDefalultKeys({ inColumns })
+    let LocalDefalultKeys = LocalFuncDefalultKeys({ inColumns });
+    let LocalMastersCustomers = MastersCustomers();
     let LocalArrayPk = LocalInData.map(element => element.pk);
-
+    let LocalMastersFindCustomers = LocalMastersCustomers.find(element => element.Mobile == inDataToInsert.CustomerData.CustomerMobile);
+    
+    if (LocalMastersFindCustomers === undefined) {
+        LocalReturnData.KReason = "No Customer Data"
+        return LocalReturnData;
+    };
+    
     let LocalRemoveUndefined = LocalArrayPk.filter(function (element) {
         return element !== undefined;
     });
@@ -14,9 +23,10 @@ const StartFunc = ({ inDataToInsert, inData, inColumns }) => {
 
     LocalReturnData.InsertData = {
         ...LocalDefalultKeys, ...inDataToInsert, UuId: MaxPk, pk: MaxPk,
+        CustomerData: { ...LocalMastersFindCustomers, CustomerMobile: LocalMastersFindCustomers?.Mobile },
         DateTime: Timestamp()
     };
-    
+
     LocalReturnData.KTF = true;
     return LocalReturnData
 };
