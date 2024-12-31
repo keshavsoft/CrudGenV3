@@ -267,19 +267,17 @@ a:hover {
 /*services*/
 
 #services {
-    padding: 10px 0;
-    height: 728px;
-    overflow: hidden;
+    padding: 100px 0;
+    height: 980px;
     background: #4e16860d;
 }
 
 
 #services .service-text {
     text-align: center;
-    margin-top: 450px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
     align-items: center;
 }
@@ -287,25 +285,23 @@ a:hover {
 #services .service-text h4 {
     color: #2f0a53;
     font-size: 22px;
-    margin: auto;
-    margin-bottom: 20px;
     font-family: 'Poppins-SemiBold';
-    
+    margin-bottom: 20px;
 }
 
 #services .service-img .service-icon {
     height: 110px;
     width: 110px;
     display: flex;
-    margin: auto;
     justify-content: center;
     align-items: center;
     background-color: #fff;
     border: 1px solid #4e1686;
     border-radius: 50%;
-    position: relative;
-    bottom: 60px;
-    
+    position: absolute;
+    position: absolute;
+    bottom: -50px;
+    left: 29%;
 }
 
 #services .service-box {
@@ -329,7 +325,7 @@ a:hover {
 }
 
 .owl-stage-outer {
-    padding: 90px 0;
+    padding: 140px 0;
 }
 
 #services .main-btn {
@@ -904,7 +900,7 @@ footer .social-links ul li {
         font-size: 22px;
     }
     #services {
-        padding: 10px 0;
+        padding: 80px 0;
     }
     #how-it-work {
         padding: 80px 0 80px 0;
