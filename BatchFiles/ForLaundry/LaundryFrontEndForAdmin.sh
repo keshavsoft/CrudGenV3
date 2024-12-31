@@ -12,6 +12,7 @@ npm run AdminAllDays-CommonConfig-QrCodeAtStage-AsArray
 npm run AdminAllDays-CommonConfig-QrCodeAtStage-BranchFilter
 npm run AdminAllDays-CommonConfig-QrCodeAtStage-BranchWise
 npm run Admin-Masters
+npm run Accounts
 
 cp -r  ./publicDir/* ../CrudGenV3/public/Laundry/Admin
 
