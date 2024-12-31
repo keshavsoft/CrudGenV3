@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    /* height: 710px; */
     padding: 0;
     overflow-x: hidden;
     font-family: 'Poppins-Regular';
@@ -267,8 +268,8 @@ a:hover {
 /*services*/
 
 #services {
-    padding: 100px 0;
-    height: 980px;
+    padding: 20px 0;
+    height: 700px;
     background: #4e16860d;
 }
 
@@ -325,7 +326,7 @@ a:hover {
 }
 
 .owl-stage-outer {
-    padding: 140px 0;
+    padding-top: 50px;
 }
 
 #services .main-btn {
