@@ -15,6 +15,8 @@ import { router as PressingReject } from "./10-PressingReject/routes.js";
 import { router as CompletionStart } from "./11-CompletionStart/routes.js";
 import { router as LeftInBranch } from "./12-LeftInBranch/routes.js";
 import { router as EntryFactoryReturn } from "./13-EntryFactoryReturn/routes.js";
+import { router as PressingReturn } from "./14-PressingReturn/routes.js";
+import { router as PressingRewash } from "./15-PressingRewash/routes.js";
 
 router.use("/QrCodes", QrCodes);
 router.use("/Orders", Orders);
@@ -29,5 +31,7 @@ router.use("/PressingReject", PressingReject);
 router.use("/CompletionStart", CompletionStart);
 router.use("/LeftInBranch", LeftInBranch);
 router.use("/EntryFactoryReturn", EntryFactoryReturn);
+router.use("/PressingReturn", PressingReturn);
+router.use("/PressingRewash", PressingRewash);
 
 export { router };
