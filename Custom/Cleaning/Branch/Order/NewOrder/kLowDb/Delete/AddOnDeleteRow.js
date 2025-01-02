@@ -25,10 +25,12 @@ const StartFunc = async ({ inBranch, inmainId, inId, AddOnKey }) => {
 
 const removeAddOn = (order, inId, addOnService) => {
   if (order && order.ItemsInOrder) {
+
     const item = order.ItemsInOrder[inId];
+
     if (item && item.AddOnArray) {
       item.AddOnArray = item.AddOnArray.filter(addOn => addOn.AddOnService !== addOnService);
-    }
+    };
   }
 };
 

@@ -15,12 +15,14 @@ let mainTableDeleteFunc = async (req, res) => {
 
     res.json(LocalFromRepo);
 };
+
 let addOnTableDeleteFunc = async (req, res) => {
     let LocalParams = req.params;
     let LocalBranch = LocalParams.inBranch;
     let LocalmainId = LocalParams.mainId;
     let LocalId = LocalParams.Id;
     let LocalAddOnKey = LocalParams.AddOnKey;
+
     let LocalFromRepo = await addOnTableDeleteFuncRepo({
         inId: LocalId, inBranch: LocalBranch,
         inmainId: LocalmainId, AddOnKey: LocalAddOnKey

@@ -4,7 +4,7 @@ var router = express.Router();
 
 import { mainTableDeleteFunc, addOnTableDeleteFunc } from '../../controllers/DeleteFuncs/EntryFile.js';
 
-router.delete('/Item/:inBranch/:Id/:inSubId', mainTableDeleteFunc);
 router.delete('/addOn/:inBranch/:mainId/:Id/:AddOnKey', addOnTableDeleteFunc);
+router.delete('/Item/:inBranch/:Id/:inSubId', mainTableDeleteFunc);
 
 export { router };
