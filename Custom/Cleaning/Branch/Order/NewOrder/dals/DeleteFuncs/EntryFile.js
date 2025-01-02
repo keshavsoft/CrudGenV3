@@ -5,9 +5,9 @@ let mainTableDeleteFunc = ({ inId, inSubId, inBranch }) => {
 
     return ItemsDeleteRow({ inId, inSubId, inBranch });
 };
-let addOnTableDeleteFunc = ({ inId, inBranch, inmainId }) => {
+let addOnTableDeleteFunc = ({ inId, inBranch, inmainId, AddOnKey }) => {
 
-    return AddOnDeleteRow({ inId, inBranch, inmainId });
+    return AddOnDeleteRow({ inId, inBranch, inmainId, AddOnKey });
 };
 
 export { mainTableDeleteFunc, addOnTableDeleteFunc };
