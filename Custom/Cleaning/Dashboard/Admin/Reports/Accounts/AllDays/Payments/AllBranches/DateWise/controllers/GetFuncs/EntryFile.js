@@ -3,34 +3,25 @@ import {
     GetAsIsFuncs as GetAsIsFuncsRepo
 } from '../../repos/GetFuncs/EntryFile.js';
 
-let GetFuncs = (req, res) => {
-    let LocalParams = req.params;
-    let localinBranch = LocalParams.inBranch;
-    let localFromDate = LocalParams.inFromDate;
-    let localToDate = LocalParams.inToDate;
-
-    let LocalFromRepo = GetFuncsRepo({ inBranch: localinBranch, inFromDate: localFromDate, inToDate: localToDate });
+const GetFuncs = (req, res) => {
+    const { inBranch, inFromDate, inToDate } = req.params;
+    const LocalFromRepo = GetFuncsRepo({ inBranch, inFromDate, inToDate });
 
     if (LocalFromRepo.length === 0) {
-        res.status(500);
-        return;
-    };
+        return res.status(500).end();
+    }
 
-    res.status(200).json(LocalFromRepo);
+    return res.status(200).json(LocalFromRepo);
 };
 
-let GetAsIsFuncs = (req, res) => {
+const GetAsIsFuncs = (req, res) => {
+    const LocalFromRepo = GetAsIsFuncsRepo();
 
-    let LocalFromRepo = GetAsIsFuncsRepo();
+    if (!LocalFromRepo.KTF) {
+        return res.status(500).send(LocalFromRepo.KReason);
+    }
 
-    if (LocalFromRepo.KTF === false) {
-        res.status(500).send(LocalFromRepo.KReason);
-        return;
-    };
-
-    res.status(200).json(LocalFromRepo);
+    return res.status(200).json(LocalFromRepo);
 };
 
-export {
-    GetFuncs, GetAsIsFuncs
-};
+export { GetFuncs, GetAsIsFuncs };
