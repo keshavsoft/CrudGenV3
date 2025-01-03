@@ -1,4 +1,7 @@
-import { GetFunc as GetFuncRepo } from '../../repos/getFuncs/EntryFile.js';
+import {
+    GetFunc as GetFuncRepo,
+    GetOrderShowFunc as GetOrderShowFuncRepo
+} from '../../repos/getFuncs/EntryFile.js';
 
 let GetFunc = (req, res) => {
     let LocalParams = req.params;
@@ -11,4 +14,16 @@ let GetFunc = (req, res) => {
     res.status(200).json(LocalFromRepo.JsonData);
 };
 
-export { GetFunc };
+let GetOrderShowFunc = (req, res) => {
+    let LocalParams = req.params;
+    let LocalBranch = LocalParams.inBranch;
+    let LocalRowPk = LocalParams.inRow;
+
+    let LocalFromRepo = GetOrderShowFuncRepo({ inBranch: LocalBranch, inRow: LocalRowPk });
+
+    if (LocalFromRepo.KTF === false) res.status(500).send(LocalFromRepo.KReason);
+
+    res.status(200).json(LocalFromRepo.JsonData);
+};
+
+export { GetFunc, GetOrderShowFunc };
