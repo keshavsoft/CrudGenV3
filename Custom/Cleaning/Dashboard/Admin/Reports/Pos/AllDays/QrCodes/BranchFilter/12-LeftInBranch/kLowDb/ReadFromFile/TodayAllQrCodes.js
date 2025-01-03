@@ -1,9 +1,9 @@
 import { StartFunc as buildData } from '../../../../CommonFuncs/buildData.js';
 
 let StartFunc = ({ inBranchName }) => {
-    const LocalQrCodeData = buildData();
+    let LocalQrCodeData = buildData();
 
-    LocalQrCodeData.filter(element => {
+    LocalQrCodeData = LocalQrCodeData.filter(element => {
         return element.BranchName === inBranchName && element.BranchScan === false;
     });
 
