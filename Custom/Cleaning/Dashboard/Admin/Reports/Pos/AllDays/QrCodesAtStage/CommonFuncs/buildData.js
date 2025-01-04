@@ -6,6 +6,8 @@ import { StartFunc as PressingScan } from "./PressingScan.js";
 import { StartFunc as CompletionScan } from "./CompletionScan.js";
 import { StartFunc as PressingRejectScan } from "./PressingRejectScan.js";
 import { StartFunc as prepareCollection } from "./prepareCollection.js";
+import { StartFunc as CompletetedScanned} from "./FactoryToBranchCompletion.js";
+
 
 let StartFunc = () => {
     const QrCodeData = QrCodes();
@@ -15,6 +17,10 @@ let StartFunc = () => {
     const PressingScanData = PressingScan();
     const CompletionScanData = CompletionScan();
     const PressingRejectScanData = PressingRejectScan();
+    const FactoryToBranchCompletion = CompletetedScanned();
+
+    // const FactoryToBranchCompletion = FactoryToBranchCompletion();
+
 
     let jVarLocalTransformedData = prepareCollection({
         inQrData: QrCodeData,
@@ -23,7 +29,8 @@ let StartFunc = () => {
         inWashingScanData: WashingScanData,
         inPressingScanData: PressingScanData,
         inCompletionScanData: CompletionScanData,
-        inPressingRejectScanData: PressingRejectScanData
+        inPressingRejectScanData: PressingRejectScanData,
+        inFactoryToBranch: FactoryToBranchCompletion
     });
 
     return jVarLocalTransformedData;

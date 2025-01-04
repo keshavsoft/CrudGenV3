@@ -1,16 +1,13 @@
 const CommonPressingScanFilterKey = "PressingScan";
-// const CommonWashingScanFilterKey = "WashingScan";
 const CommonCompletionScanFilterKey = "CompletionScan";
 
-
-
-const StartFunc = ({ inQrcodeArray }) => {
+const StartFunc = ({ inQrcodeArray, inBranchName }) => {
     const LocalQrcodeArray = inQrcodeArray;
 
     const LocalFilteredArray = LocalQrcodeArray.filter(element => {
         return element[CommonPressingScanFilterKey] === true &&
-            // element[CommonWashingScanFilterKey] === false &&
-            element[CommonCompletionScanFilterKey] === false;
+        element[CommonCompletionScanFilterKey] === false &&
+            element.BranchName === inBranchName;
     });
 
     return LocalFilteredArray;
