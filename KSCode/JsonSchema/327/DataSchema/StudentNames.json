@@ -4,7 +4,8 @@
       "isRequired": true
     },
     "Roll Number": {
-      "type": "STRING"
+      "type": "STRING",
+      "isRequired": true
     },
     "Mobile": {
       "type": "TELEPHONE",
