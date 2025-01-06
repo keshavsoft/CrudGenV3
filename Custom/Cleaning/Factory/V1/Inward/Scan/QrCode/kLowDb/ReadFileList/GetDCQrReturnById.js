@@ -11,6 +11,7 @@ let StartFunc = ({ inFactory, inId }) => {
     const EntryScanData = EntryScan();
 
     let LocalFilterCancelScanData = EntryCancelScanData.filter(e => e.FactoryName == LocalFactory);
+
     let filterData = JFDCMergeFunc({ inEntryScan: EntryScanData, inEntryCancel: LocalFilterCancelScanData });
 
     let jVarLocalTransformedData = jFLocalMergeFunc({
@@ -33,11 +34,12 @@ let jFLocalMergeFunc = ({ inQrData, inEntryScan }) => {
             DeliveryDate: new Date(matchedRecord?.DeliveryDateTime).toLocaleDateString('en-GB'),
             ItemName: matchedRecord?.ItemName,
             Rate: matchedRecord?.Rate,
-            DCVoucherRef:loopScan?.DCVoucherRef,
+            DCVoucherRef: loopScan?.DCVoucherRef,
             VoucherNumber: loopScan?.VoucherNumber,
             QrCodeId: loopScan.QrCodeId,
             DCDate: new Date(loopScan?.Date).toLocaleDateString('en-GB'),
             BranchName: loopScan?.BranchName,
+            ItemRemark: loopScan?.Description,
             TimeSpan: TimeSpan({ DateTime: loopScan.DateTime })
         };
     }).filter(record => record.MatchedRecord !== null);
