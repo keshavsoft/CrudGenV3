@@ -39,12 +39,11 @@ let jFLocalMergeFunc = ({ inQrData, inEntryCancelScan }) => {
             DeliveryDate: new Date(matchedRecord?.DeliveryDateTime).toLocaleDateString('en-GB'),
             ItemName: matchedRecord?.ItemName,
             Rate: matchedRecord?.Rate,
-
             VoucherNumber: loopScan?.VoucherRef,
             DCDate: new Date(loopScan?.Date).toLocaleDateString('en-GB'),
-
             QrCodeId: loopScan.QrCodeId,
             BranchName: loopScan?.BranchName,
+            Description: loopScan?.Description,
             TimeSpan: TimeSpan({ DateTime: loopScan.DateTime })
         };
     }).filter(record => record.MatchedRecord !== null);
