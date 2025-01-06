@@ -16,6 +16,8 @@ import { router as CompletionStart } from "./11-CompletionStart/routes.js";
 import { router as LeftInBranch } from "./12-LeftInBranch/routes.js";
 import { router as EntryFactoryReturn } from "./13-EntryFactoryReturn/routes.js"
 import { router as PressingRewash } from "./14-PressingRewash/routes.js"
+import { router as FactoryToBranch } from "./15-FactoryToBranch/routes.js"
+
 
 
 
@@ -33,5 +35,7 @@ router.use("/CompletionStart", CompletionStart);
 router.use("/LeftInBranch", LeftInBranch);
 router.use("/EntryFactoryReturn", EntryFactoryReturn);
 router.use("/PressingRewash", PressingRewash);
+router.use("/FactoryToBranch", FactoryToBranch);
+
 
 export { router };
