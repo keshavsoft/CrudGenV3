@@ -1,4 +1,4 @@
-let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inPress_ReWashScanData, inWashingScanData, inPressingScanData, inCompletionScanData, inPressingRejectScanData, inEntryCancelScanData }) => {
+let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inPress_ReWashScanData, inWashingScanData, inPressingScanData, inCompletionScanData, inPressingRejectScanData, inEntryCancelScanData, inFactoryToBranch_Scan }) => {
 
     let jVarLocalReturnObject = inQrData.map(loopQr => {
         const loopBranchScanFindData = inBranchScandata.find(loopScan => loopScan.QrCodeId == loopQr.pk);
@@ -9,6 +9,8 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inPress_ReWashSc
         const LoopInsideFindCompletionScan = inCompletionScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
         const LoopInsideFindinPress_ReWashScan = inPress_ReWashScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
         const LoopInsideFindEntryCancelScan = inEntryCancelScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
+        const LoopInsideFactoryToBranch_Scan = inFactoryToBranch_Scan.find(loopScan => loopScan.QrCodeId == loopQr.pk);
+
 
         return {
             QrCodeId: loopQr.pk,
@@ -61,6 +63,11 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inPress_ReWashSc
             PressingRejectScan_DC: LoopInsideFindPressingRejectScan?.VoucherRef,
             PressingRejectScan_DCDate: LoopInsideFindPressingRejectScan?.DCDate,
             PressingRejectScan_FactoryName: LoopInsideFindPressingRejectScan?.FactoryName,
+            
+            FactoryToBranchScan: LoopInsideFactoryToBranch_Scan ? true : false,
+            FactoryToBranchScan_DC: LoopInsideFactoryToBranch_Scan?.VoucherRef,
+            FactoryToBranchScan_DCDate: LoopInsideFactoryToBranch_Scan?.DCDate,
+            FactoryToBranchScan_FactoryName: LoopInsideFactoryToBranch_Scan?.FactoryName,
 
             BranchName: loopQr.BookingData.OrderData.BranchName,
             TimeSpan: TimeSpan({ DateTime: loopQr.DateTime })
