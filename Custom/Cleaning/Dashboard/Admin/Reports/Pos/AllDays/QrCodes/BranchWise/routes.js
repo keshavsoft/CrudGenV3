@@ -17,6 +17,9 @@ import { router as LeftInBranch } from "./12-LeftInBranch/routes.js";
 import { router as EntryFactoryReturn } from "./13-EntryFactoryReturn/routes.js";
 import { router as PressingReturn } from "./14-PressingReturn/routes.js";
 import { router as PressingRewash } from "./15-PressingRewash/routes.js";
+import { router as FactoryToBranch } from "./16-FactoryToBranch/routes.js";
+
+
 
 
 router.use("/QrCodes", QrCodes);
@@ -34,6 +37,8 @@ router.use("/LeftInBranch", LeftInBranch);
 router.use("/EntryFactoryReturn", EntryFactoryReturn);
 router.use("/PressingReturn", PressingReturn);
 router.use("/PressingRewash", PressingRewash);
+router.use("/FactoryToBranch", FactoryToBranch);
+
 
 
 
