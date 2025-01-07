@@ -7,7 +7,7 @@ import { router as routerFromEntryReturn } from './EntryReturn/routes.js';
 import { router as routerFromWashingReturn } from './WashingReturn/routes.js';
 import { router as Completion } from './Completion/routes.js';
 import { router as PressingReturn } from './PressingReturn/routes.js';
-
+import { router as Delivery } from './Delivery/routes.js';
 
 // import { router as routerFromReturn } from './Return/routes.js';
 
@@ -16,7 +16,7 @@ router.use('/EntryReturn', routerFromEntryReturn);
 router.use('/WashingReturn', routerFromWashingReturn);
 router.use('/Completion', Completion);
 router.use('/PressingReturn', PressingReturn);
-
+router.use('/Delivery', Delivery);
 
 // router.use('/Return', routerFromReturn);
 
