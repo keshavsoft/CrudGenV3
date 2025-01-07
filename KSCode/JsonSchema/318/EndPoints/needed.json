@@ -3,5 +3,7 @@
     "Show",
     "SubTable",
     "Bulk",
-    "AggrFuncs"
+    "AggrFuncs",
+    "Alter",
+    "Delete"
 ]
