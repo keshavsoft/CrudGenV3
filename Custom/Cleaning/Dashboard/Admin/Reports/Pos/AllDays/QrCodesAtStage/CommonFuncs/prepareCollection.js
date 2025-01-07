@@ -23,6 +23,7 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanDat
             BranchScan: loopBranchScanFindData ? true : false,
             BranchScan_DC: loopBranchScanFindData?.VoucherRef,
             BranchScan_FactoryName: loopBranchScanFindData?.DCFactory,
+            BranchScan_Date: loopBranchScanFindData?.DateTime,
 
             // FactoryScan: LoopInsideFindEntryScan,
             EntryScan: LoopInsideFindEntryScan ? true : false,

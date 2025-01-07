@@ -1,8 +1,8 @@
-const CommonFilterKey = "BranchScan";
+const CommonFilterKey = "BranchName";
 
 const StartFunc = ({ inQrcodeArray }) => {
     const LocalFilteredArray = inQrcodeArray.filter(element => {
-        return element[CommonFilterKey] === false;
+        return element[CommonFilterKey] ;
     });
 
     return LocalFilteredArray;
