@@ -1,7 +1,7 @@
 import { LowSync } from 'lowdb'
 import { JSONFileSync } from 'lowdb/node'
-import Configjson from '../../../../../../Config.json' assert { type: 'json' };
-let CommonTableName = "BranchScan.json";
+import Configjson from '../../../../../../../../binV4/Config.json' assert { type: 'json' };
+let CommonTableName = "To_Delivery_Scan.json";
 
 let StartFunc = () => {
     let LocalReturnData = { KTF: false, JSONFolderPath: "", CreatedLog: {} };
