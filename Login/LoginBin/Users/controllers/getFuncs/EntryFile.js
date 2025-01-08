@@ -1,6 +1,7 @@
 import {
     GetFunc as GetFuncRepo, ValidateEmailFunc as ValidateEmailFuncRepo,
-    GetCreateWithUserFunc as GetCreateWithUserFuncRepo
+    GetCreateWithUserFunc as GetCreateWithUserFuncRepo,
+    GetRowDataFunc as GetRowDataFuncRepo
 } from '../../repos/getFuncs/EntryFile.js';
 
 let GetFunc = async (req, res) => {
@@ -36,4 +37,15 @@ let GetCreateWithUserFunc = (req, res) => {
     res.json(LocalFromRepo.JsonData);
 };
 
-export { GetFunc, ValidateEmailFunc, GetCreateWithUserFunc };
+
+let GetRowDataFunc = (req, res) => {
+    let LocalId = req.params.inId;
+
+    let LocalFromRepo = GetRowDataFuncRepo({ inId: LocalId });
+
+    if (LocalFromRepo.KTF === false) return res.status(409).send("No Data");
+
+    res.json(LocalFromRepo.JsonData);
+};
+
+export { GetFunc, ValidateEmailFunc, GetCreateWithUserFunc,GetRowDataFunc };
