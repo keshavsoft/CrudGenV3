@@ -3,6 +3,8 @@ import { StartFunc as StartFuncUpdateData } from '../../kLowDb/UpdateData/Email.
 import { StartFunc as StartFuncDataBase } from "../../../../../SetupFuncs/ForDatabase/EntryFile.js";
 import { StartFunc as StartFuncUpdateDataPk } from "../../kLowDb/UpdateData/DataPK.js";
 import { StartFunc as PushData } from '../../kLowDb/PushData/UserNameOnly.js';
+import { StartFunc as RowData } from '../../kLowDb/PushData/RowData.js';
+
 
 let GetFunc = () => {
     return StartFuncPullData();
@@ -25,4 +27,8 @@ let GetCreateWithUserFunc = ({ inUserName }) => {
     return PushData({ inUsername: inUserName });
 };
 
-export { GetFunc, ValidateEmailFunc, GetCreateWithUserFunc };
+let GetRowDataFunc = ({ inId }) => {
+    return RowData({ inId: inId });
+};
+
+export { GetFunc, ValidateEmailFunc, GetCreateWithUserFunc,GetRowDataFunc };

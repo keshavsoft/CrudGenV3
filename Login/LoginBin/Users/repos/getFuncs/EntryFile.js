@@ -1,6 +1,7 @@
 import {
     GetFunc as GetFuncDal, ValidateEmailFunc as ValidateEmailFuncDal,
-    GetCreateWithUserFunc as GetCreateWithUserFuncDal
+    GetCreateWithUserFunc as GetCreateWithUserFuncDal,
+    GetRowDataFunc as GetRowDataFuncDal
 } from '../../dals/getFuncs/EntryFile.js';
 
 let GetFunc = () => {
@@ -15,4 +16,7 @@ let GetCreateWithUserFunc = ({ inUserName }) => {
     return GetCreateWithUserFuncDal({ inUserName });
 };
 
-export { GetFunc, ValidateEmailFunc, GetCreateWithUserFunc };
+let GetRowDataFunc = ({ inId }) => {
+    return GetRowDataFuncDal({ inId });
+};
+export { GetFunc, ValidateEmailFunc, GetCreateWithUserFunc,GetRowDataFunc };
