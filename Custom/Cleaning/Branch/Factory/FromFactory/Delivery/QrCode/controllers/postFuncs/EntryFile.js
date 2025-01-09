@@ -5,11 +5,10 @@ let PostFunc = (req, res) => {
     let LocalBranch = LocalParams.inBranch;
     let LocalBody = req.body;
     let LocalQrCode = LocalBody.QrCodeId;
-    let LocalVoucher = LocalBody.VoucherRef;
 
     let LocalFromRepo = PostFuncRepo({
         inFactory: LocalBranch,
-        inDataInsert: LocalBody, inVoucher: LocalVoucher,
+        inDataInsert: LocalBody,
         inQrCodeId: LocalQrCode
     });
     res.json(LocalFromRepo);

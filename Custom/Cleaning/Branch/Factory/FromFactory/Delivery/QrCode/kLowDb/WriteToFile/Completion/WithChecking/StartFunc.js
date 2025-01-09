@@ -5,6 +5,7 @@ import { StartFunc as LocalFuncGeneratePk } from "./Generate.js";
 
 let StartFunc = ({ inDataToInsert, inVoucher }) => {
     let LocalinDataToInsert = inDataToInsert;
+    let LocalOrderNumber = LocalinDataToInsert.OrderNumber;
     let LocalReturnData = { KTF: false, JSONFolderPath: "", CreatedLog: {} };
     let LocalStartFuncPullData = StartFuncPullData();
 
@@ -48,7 +49,7 @@ let StartFunc = ({ inDataToInsert, inVoucher }) => {
     db.data.push(LocalDataWithUuid.InsertData);
     db.write();
     LocalReturnData.KTF = true;
-    LocalReturnData.QrCount = db.data.filter(el => el.VoucherRef == inVoucher).length;
+    LocalReturnData.QrCount = db.data.filter(el => el.OrderNumber == LocalOrderNumber).length;
     LocalReturnData.ScanNo = LocalDataWithUuid.InsertData.QrCodeId;
 
     return LocalReturnData;

@@ -1,7 +1,7 @@
 import { StartFunc as QrCodes } from '../CommonFuncs/QrCodes.js';
 import { StartFunc as F_F_Completion_Scan } from '../CommonFuncs/F_F_Completion_Scan.js';
 import { StartFunc as F_F_Pressing_Return_Scan } from '../CommonFuncs/F_F_Pressing_Return_Scan.js';
-import { StartFunc as EntryCancelScan } from '../CommonFuncs/EntryCancelScan.js';
+import { StartFunc as EntryCancelScan } from '../CommonFuncs/F_F_Entry_Return_Scan.js';
 import { StartFunc as BranchTable } from '../CommonFuncs/BranchTable.js';
 
 let StartFunc = ({ inOrderId, inBranch }) => {
