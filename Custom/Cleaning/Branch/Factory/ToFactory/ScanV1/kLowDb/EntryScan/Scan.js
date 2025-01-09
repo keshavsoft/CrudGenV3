@@ -1,6 +1,6 @@
 import { StartFunc as StartFuncwriteFileFromModal } from './WithChecking/StartFunc.js';
 import { StartFuncForBookings as StartFuncCheckQrCodes } from "./Check/CheckQrCodes.js";
-// import { StartFunc as CheckBrcnchDc } from "./Check/CheckBrcnchDc.js";
+import { StartFunc as CheckBrcnchDc } from "./Check/CheckBrcnchDc.js";
 
 let StartFunc = ({ inBranch, inDataInsert, inQrCodeId, inVoucherRef }) => {
 
@@ -8,22 +8,22 @@ let StartFunc = ({ inBranch, inDataInsert, inQrCodeId, inVoucherRef }) => {
     let LocalQrId = inQrCodeId;
     let LocalDc = inVoucherRef;
     let LocalDataInsert = inDataInsert;
-    // let LocalFactoryName = inDataInsert.DCFactory;
+    let LocalFactoryName = inDataInsert.DCFactory;
     let LocalReturnData = { KTF: false };
 
-    let LocalCheckQrCodes = StartFuncCheckQrCodes({ inTable: LocalTable, inQrId: LocalQrId });
+    let LocalCheckQrCodes = StartFuncCheckQrCodes({ inTable: LocalTable, inQrId: LocalQrId, InFactoryName: LocalFactoryName });
 
     if (LocalCheckQrCodes.KTF === false) {
         LocalReturnData.KReason = LocalCheckQrCodes.KReason
         return LocalReturnData;
     };
 
-    // let LocalCheckBrcnchDc = CheckBrcnchDc({ inDc: LocalDc });
+    let LocalCheckBrcnchDc = CheckBrcnchDc({ inDc: LocalDc });
 
-    // if (LocalCheckBrcnchDc.KTF === false) {
-    //     LocalReturnData.KReason = LocalCheckBrcnchDc.KReason
-    //     return LocalReturnData;
-    // };
+    if (LocalCheckBrcnchDc.KTF === false) {
+        LocalReturnData.KReason = LocalCheckBrcnchDc.KReason
+        return LocalReturnData;
+    };
 
     let localInsert = StartFuncwriteFileFromModal({ inDataToInsert: LocalDataInsert, inVoucherRef });
 
