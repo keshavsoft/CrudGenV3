@@ -128,29 +128,7 @@
     "DataPk": 318,
     "UuId": "5dd3235a-63c9-489e-88dd-2371eae6392a"
   },
-  {
-    "UserName": "PBS",
-    "Password": "PBS",
-    "Branch": "PBS",
-    "BranchMobile": "888888",
-    "UserMobile": "5555555",
-    "isAdminValidated": false,
-    "isMailValidated": true,
-    "DataPk": 318,
-    "UuId": "fb02486d-0a0b-4e3a-a934-79b2cc4302a0"
-  },
-  {
-    "UserName": "RandB",
-    "Password": "RandB",
-    "Branch": "RandB",
-    "BranchMobile": "666677788",
-    "UserMobile": "88889999",
-    "isAdminValidated": false,
-    "isMailValidated": true,
-    "DataPk": 318,
-    "UuId": "26331984-da79-4bc9-b0ef-a25b9c158bda"
-  },
-  {
+    {
     "UserName": "RandBVzm",
     "Password": "RandBVzm",
     "Branch": "RandBVzm",
@@ -248,5 +226,25 @@
     "isMailValidated": true,
     "DataPk": 318,
     "UuId": "07714eba-d853-413d-a0b0-6a60a8eb8cf8"
+  },
+  {
+    "UserName": "ANFO",
+    "Password": "ANFO",
+    "Branch": "ANFO",
+    "BranchMobile": "7878787878",
+    "UserMobile": "7777777777",
+    "isAdminValidated": false,
+    "isMailValidated": false,
+    "UuId": "766154c0-7671-48eb-b9e5-22cc1b00b70b"
+  },
+  {
+    "UserName": "VRNB",
+    "Password": "VRNB",
+    "Branch": "VRNB",
+    "BranchMobile": "456677",
+    "UserMobile": "999999",
+    "isAdminValidated": false,
+    "isMailValidated": false,
+    "UuId": "7ecdfacd-6c41-48b0-8d60-39719a68fde9"
   }
 ]
