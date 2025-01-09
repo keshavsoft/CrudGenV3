@@ -9,8 +9,8 @@
             "name": "DataSchema",
             "children": [
                 {
-                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\ANR.json",
-                    "name": "ANR.json",
+                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\ANFO.json",
+                    "name": "ANFO.json",
                     "fileData": {
                         "ItemInOrder": {
                             "type": "OBJECT",
@@ -249,6 +249,10 @@
                             "allowNull": true
                         },
                         "Description": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "BranchName": {
                             "type": "STRING",
                             "allowNull": true
                         }
@@ -543,8 +547,8 @@
                     }
                 },
                 {
-                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\FromFactoryCancelScan.json",
-                    "name": "FromFactoryCancelScan.json",
+                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\FromFactoryScan.json",
+                    "name": "FromFactoryScan.json",
                     "fileData": {
                         "QrCodeId": {
                             "type": "INTEGER",
@@ -604,8 +608,191 @@
                     }
                 },
                 {
-                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\FromFactoryScan.json",
-                    "name": "FromFactoryScan.json",
+                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\F_F_Completion_Scan.json",
+                    "name": "F_F_Completion_Scan.json",
+                    "fileData": {
+                        "QrCodeId": {
+                            "type": "INTEGER",
+                            "unique": true,
+                            "allowNull": false,
+                            "onUpdate": "cascade",
+                            "onDelete": "cascade"
+                        },
+                        "ItemName": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "Rate": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "FactorySelected": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "VoucherRef": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "BranchName": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "VoucherNumber": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "DCFactory": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "DCDate": {
+                            "type": "DATE",
+                            "allowNull": true
+                        },
+                        "DCDescription": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "OrderNumber": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "OrderDate": {
+                            "type": "DATE",
+                            "allowNull": true
+                        },
+                        "DeliveryDate": {
+                            "type": "DATE",
+                            "allowNull": true
+                        }
+                    }
+                },
+                {
+                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\F_F_Entry_Return_Scan.json",
+                    "name": "F_F_Entry_Return_Scan.json",
+                    "fileData": {
+                        "QrCodeId": {
+                            "type": "INTEGER",
+                            "unique": true,
+                            "allowNull": false,
+                            "onUpdate": "cascade",
+                            "onDelete": "cascade"
+                        },
+                        "ItemName": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "Rate": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "FactorySelected": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "VoucherRef": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "BranchName": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "VoucherNumber": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "DCFactory": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "DCDate": {
+                            "type": "DATE",
+                            "allowNull": true
+                        },
+                        "DCDescription": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "OrderNumber": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "OrderDate": {
+                            "type": "DATE",
+                            "allowNull": true
+                        },
+                        "DeliveryDate": {
+                            "type": "DATE",
+                            "allowNull": true
+                        }
+                    }
+                },
+                {
+                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\F_F_Pressing_Return_Scan.json",
+                    "name": "F_F_Pressing_Return_Scan.json",
+                    "fileData": {
+                        "QrCodeId": {
+                            "type": "INTEGER",
+                            "unique": true,
+                            "allowNull": false,
+                            "onUpdate": "cascade",
+                            "onDelete": "cascade"
+                        },
+                        "ItemName": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "Rate": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "FactorySelected": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "VoucherRef": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "BranchName": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "VoucherNumber": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "DCFactory": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "DCDate": {
+                            "type": "DATE",
+                            "allowNull": true
+                        },
+                        "DCDescription": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "OrderNumber": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "OrderDate": {
+                            "type": "DATE",
+                            "allowNull": true
+                        },
+                        "DeliveryDate": {
+                            "type": "DATE",
+                            "allowNull": true
+                        }
+                    }
+                },
+                {
+                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\F_F_Washing_Return_Scan.json",
+                    "name": "F_F_Washing_Return_Scan.json",
                     "fileData": {
                         "QrCodeId": {
                             "type": "INTEGER",
@@ -899,6 +1086,17 @@
                     }
                 },
                 {
+                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\MastersItemCategory.json",
+                    "name": "MastersItemCategory.json",
+                    "fileData": {
+                        "ItemCategory": {
+                            "type": "STRING",
+                            "unique": true,
+                            "allowNull": false
+                        }
+                    }
+                },
+                {
                     "path": "KSCode\\JsonSchema\\318\\DataSchema\\MastersItems.json",
                     "name": "MastersItems.json",
                     "fileData": {
@@ -922,6 +1120,28 @@
                         "DryWashRate": {
                             "type": "NUMBER",
                             "allowNull": true
+                        }
+                    }
+                },
+                {
+                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\MastersItemService.json",
+                    "name": "MastersItemService.json",
+                    "fileData": {
+                        "ItemService": {
+                            "type": "STRING",
+                            "unique": true,
+                            "allowNull": false
+                        }
+                    }
+                },
+                {
+                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\MastersItemTypes.json",
+                    "name": "MastersItemTypes.json",
+                    "fileData": {
+                        "ItemType": {
+                            "type": "STRING",
+                            "unique": true,
+                            "allowNull": false
                         }
                     }
                 },
@@ -1002,43 +1222,6 @@
                 {
                     "path": "KSCode\\JsonSchema\\318\\DataSchema\\NGGOS.json",
                     "name": "NGGOS.json",
-                    "fileData": {
-                        "ItemInOrder": {
-                            "type": "OBJECT",
-                            "allowNull": true,
-                            "defaultValue": {}
-                        },
-                        "CustomerData": {
-                            "type": "OBJECT",
-                            "allowNull": true,
-                            "defaultValue": {
-                                "CustomerName": "",
-                                "CustomerMobile": ""
-                            }
-                        },
-                        "OrderData": {
-                            "type": "OBJECT",
-                            "allowNull": true,
-                            "defaultValue": {
-                                "BranchName": "",
-                                "Currentdateandtime": ""
-                            }
-                        },
-                        "AddOn": {
-                            "type": "OBJECT",
-                            "allowNull": true,
-                            "defaultValue": {}
-                        },
-                        "CheckOutData": {
-                            "type": "OBJECT",
-                            "allowNull": true,
-                            "defaultValue": {}
-                        }
-                    }
-                },
-                {
-                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\PBS.json",
-                    "name": "PBS.json",
                     "fileData": {
                         "ItemInOrder": {
                             "type": "OBJECT",
@@ -1232,6 +1415,85 @@
                     }
                 },
                 {
+                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\Press_ReWashDC.json",
+                    "name": "Press_ReWashDC.json",
+                    "fileData": {
+                        "Date": {
+                            "type": "DATE",
+                            "allowNull": true
+                        },
+                        "Description": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "FactoryName": {
+                            "type": "STRING",
+                            "allowNull": true
+                        }
+                    }
+                },
+                {
+                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\Press_ReWashScan.json",
+                    "name": "Press_ReWashScan.json",
+                    "fileData": {
+                        "QrCodeId": {
+                            "type": "INTEGER",
+                            "unique": true,
+                            "allowNull": false,
+                            "onUpdate": "cascade",
+                            "onDelete": "cascade"
+                        },
+                        "ItemName": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "Rate": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "FactorySelected": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "VoucherRef": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "BranchName": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "VoucherNumber": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "DCFactory": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "DCDate": {
+                            "type": "DATE",
+                            "allowNull": true
+                        },
+                        "DCDescription": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "OrderNumber": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "OrderDate": {
+                            "type": "DATE",
+                            "allowNull": true
+                        },
+                        "DeliveryDate": {
+                            "type": "DATE",
+                            "allowNull": true
+                        }
+                    }
+                },
+                {
                     "path": "KSCode\\JsonSchema\\318\\DataSchema\\QrCodes.json",
                     "name": "QrCodes.json",
                     "fileData": {
@@ -1283,43 +1545,6 @@
                         "OrderNumber": {
                             "type": "NUMBER",
                             "allowNull": false
-                        }
-                    }
-                },
-                {
-                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\RandB.json",
-                    "name": "RandB.json",
-                    "fileData": {
-                        "ItemInOrder": {
-                            "type": "OBJECT",
-                            "allowNull": true,
-                            "defaultValue": {}
-                        },
-                        "CustomerData": {
-                            "type": "OBJECT",
-                            "allowNull": true,
-                            "defaultValue": {
-                                "CustomerName": "",
-                                "CustomerMobile": ""
-                            }
-                        },
-                        "OrderData": {
-                            "type": "OBJECT",
-                            "allowNull": true,
-                            "defaultValue": {
-                                "BranchName": "",
-                                "Currentdateandtime": ""
-                            }
-                        },
-                        "AddOn": {
-                            "type": "OBJECT",
-                            "allowNull": true,
-                            "defaultValue": {}
-                        },
-                        "CheckOutData": {
-                            "type": "OBJECT",
-                            "allowNull": true,
-                            "defaultValue": {}
                         }
                     }
                 },
@@ -1435,40 +1660,69 @@
                     }
                 },
                 {
-                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\TransOrdersKakinada.json",
-                    "name": "TransOrdersKakinada.json",
+                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\To_Delivery_Scan.json",
+                    "name": "To_Delivery_Scan.json",
                     "fileData": {
-                        "ItemInOrder": {
-                            "type": "OBJECT",
+                        "QrCodeId": {
+                            "type": "INTEGER",
+                            "unique": true,
+                            "allowNull": false,
+                            "onUpdate": "cascade",
+                            "onDelete": "cascade"
+                        },
+                        "ItemName": {
+                            "type": "STRING",
                             "allowNull": true
                         },
-                        "CustomerData": {
-                            "type": "OBJECT",
+                        "Rate": {
+                            "type": "NUMBER",
                             "allowNull": true
                         },
-                        "OrderData": {
-                            "type": "OBJECT",
-                            "allowNull": true,
-                            "defaultValue": {
-                                "BranchName": "",
-                                "Currentdateandtime": ""
-                            }
+                        "FactorySelected": {
+                            "type": "STRING",
+                            "allowNull": true
                         },
-                        "AddOn": {
-                            "type": "OBJECT",
-                            "allowNull": true,
-                            "defaultValue": {}
+                        "VoucherRef": {
+                            "type": "NUMBER",
+                            "allowNull": true
                         },
-                        "CheckOutData": {
-                            "type": "OBJECT",
-                            "allowNull": true,
-                            "defaultValue": {}
+                        "BranchName": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "VoucherNumber": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "DCFactory": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "DCDate": {
+                            "type": "DATE",
+                            "allowNull": true
+                        },
+                        "DCDescription": {
+                            "type": "STRING",
+                            "allowNull": true
+                        },
+                        "OrderNumber": {
+                            "type": "NUMBER",
+                            "allowNull": true
+                        },
+                        "OrderDate": {
+                            "type": "DATE",
+                            "allowNull": true
+                        },
+                        "DeliveryDate": {
+                            "type": "DATE",
+                            "allowNull": true
                         }
                     }
                 },
                 {
-                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\VUDA.json",
-                    "name": "VUDA.json",
+                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\VG.json",
+                    "name": "VG.json",
                     "fileData": {
                         "ItemInOrder": {
                             "type": "OBJECT",
@@ -1504,8 +1758,8 @@
                     }
                 },
                 {
-                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\VZM.json",
-                    "name": "VZM.json",
+                    "path": "KSCode\\JsonSchema\\318\\DataSchema\\VRNB.json",
+                    "name": "VRNB.json",
                     "fileData": {
                         "ItemInOrder": {
                             "type": "OBJECT",

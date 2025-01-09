@@ -30,17 +30,6 @@
     "UuId": "92f88445-45c5-4ef0-8a8b-995771da7d12"
   },
   {
-    "UserName": "ANR",
-    "Password": "ANR",
-    "Branch": "ANR",
-    "BranchMobile": "7878787878",
-    "UserMobile": "7777777777",
-    "isAdminValidated": false,
-    "isMailValidated": true,
-    "DataPk": 318,
-    "UuId": "a72d6ae5-039f-4f60-8e9e-4f3551bae9ec"
-  },
-  {
     "UserName": "CSO",
     "Password": "CSO",
     "Branch": "CSO",
@@ -128,17 +117,6 @@
     "DataPk": 318,
     "UuId": "5dd3235a-63c9-489e-88dd-2371eae6392a"
   },
-    {
-    "UserName": "RandBVzm",
-    "Password": "RandBVzm",
-    "Branch": "RandBVzm",
-    "BranchMobile": "456677",
-    "UserMobile": "999999",
-    "isAdminValidated": false,
-    "isMailValidated": true,
-    "DataPk": 318,
-    "UuId": "4cc1cb21-c097-4cdb-b96d-0d9720f032ee"
-  },
   {
     "UserName": "SP",
     "Password": "SP",
@@ -206,35 +184,14 @@
     "UuId": "07714eba-d853-413d-a0b0-6a60a8eb8cf8"
   },
   {
-    "UserName": "Vzm",
-    "Password": "Vzm",
-    "FactoryName": "Vzm",
-    "BranchMobile": "5746",
-    "UserMobile": "4667",
-    "isAdminValidated": false,
-    "isMailValidated": true,
-    "DataPk": 318,
-    "UuId": "07714eba-d853-413d-a0b0-6a60a8eb8cf8"
-  },
-  {
-    "UserName": "GD",
-    "Password": "GD",
-    "FactoryName": "GD",
-    "BranchMobile": "5746",
-    "UserMobile": "4667",
-    "isAdminValidated": false,
-    "isMailValidated": true,
-    "DataPk": 318,
-    "UuId": "07714eba-d853-413d-a0b0-6a60a8eb8cf8"
-  },
-  {
     "UserName": "ANFO",
     "Password": "ANFO",
     "Branch": "ANFO",
     "BranchMobile": "7878787878",
     "UserMobile": "7777777777",
     "isAdminValidated": false,
-    "isMailValidated": false,
+    "isMailValidated": true,
+    "DataPk": 318,
     "UuId": "766154c0-7671-48eb-b9e5-22cc1b00b70b"
   },
   {
@@ -244,7 +201,8 @@
     "BranchMobile": "456677",
     "UserMobile": "999999",
     "isAdminValidated": false,
-    "isMailValidated": false,
+    "isMailValidated": true,
+    "DataPk": 318,
     "UuId": "7ecdfacd-6c41-48b0-8d60-39719a68fde9"
   }
 ]
