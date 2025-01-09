@@ -8,6 +8,7 @@ import { StartFunc as Bulk } from './Bulk/EntryFile.js';
 import { StartFunc as ShowWithColumns } from './ShowWithColumns/EntryFile.js';
 import { StartFunc as Sort } from './Sort/EntryFile.js';
 import { StartFunc as SubTable } from "./SubTable/EntryFile.js";
+import { StartFunc as AggrFuncs } from "./AggrFuncs/EntryFile.js";
 
 let StartFunc = ({ inTablesCollection, inTo, inFrom, inConfigJson, inEndPointsNeeded }) => {
     if (inEndPointsNeeded.includes("Show")) Show({ inTablesCollection, inTo });
@@ -16,6 +17,7 @@ let StartFunc = ({ inTablesCollection, inTo, inFrom, inConfigJson, inEndPointsNe
     if (inEndPointsNeeded.includes("Images")) Images({ inTablesCollection, inTo, inConfigJson });
     if (inEndPointsNeeded.includes("Alter")) Alter({ inTablesCollection, inTo, inConfigJson });
     if (inEndPointsNeeded.includes("SubTable")) SubTable({ inTablesCollection, inTo, inConfigJson });
+    if (inEndPointsNeeded.includes("AggrFuncs")) AggrFuncs({ inTablesCollection, inTo, inConfigJson });
 
     // Create({ inTablesCollection, inTo, inConfigJson });
     // Alter({ inTablesCollection, inTo, inConfigJson });
