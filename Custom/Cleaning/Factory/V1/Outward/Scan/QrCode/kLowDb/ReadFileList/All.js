@@ -6,19 +6,12 @@ import { StartFunc as EntryCancelScan } from '../CommonFuncs/PressingCancelScan.
 let StartFunc = ({ inFactory }) => {
     // let LocalFindValue = new Date().toLocaleDateString('en-GB').replace(/\//g, '/');
     let LocalFactory = inFactory;
-
     const Qrdb = QrCodes();
-
     const BranchScandb = BranchScan();
-  
     const EntryScandb = EntryScan();
-  
     const EntryCancelScandb = EntryCancelScan();
-   
     let LocalFilterBranchScan = BranchScandb.filter(e => e.FactoryName === LocalFactory);
-
     let LocalFilterQr = Qrdb.filter(e => e.location === LocalFactory);
-
     let LocalFilterEntryScan = EntryScandb.filter(e => e.FactoryName === LocalFactory);
     let LocalFilterCancelScan = EntryCancelScandb.filter(e => e.FactoryName === LocalFactory);
 
@@ -28,7 +21,12 @@ let StartFunc = ({ inFactory }) => {
         inEntryScan: LocalFilterEntryScan,
         inEntryCancelScan: LocalFilterCancelScan
     });
-    let LocalArrayReverseData = jVarLocalTransformedData.slice().reverse();
+
+    const unmatchedRecords = jVarLocalTransformedData.filter(obj1 => { return !LocalFilterCancelScan.some(obj2 => obj2.QrCodeId == obj1.QrCodeId); });
+
+    const unmatchedWashingData = unmatchedRecords.filter(obj1 =>obj1.ReWash !== true);
+
+    let LocalArrayReverseData = unmatchedWashingData.slice().reverse();
 
     return LocalArrayReverseData;
 };
@@ -48,6 +46,8 @@ let jFLocalMergeFunc = ({ inQrData, inScandata, inEntryScan, inEntryCancelScan }
             Rate: matchedRecord?.Rate,
 
             QrCodeId: loopScan.QrCodeId,
+            ReWash: loopScan.ReWash,
+
             BranchName: matchedRecord?.BookingData.OrderData.BranchName,
             Status: match,
             EntryReturnStarus: CheckEntryReturn,
