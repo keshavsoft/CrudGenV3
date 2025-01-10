@@ -13,6 +13,12 @@ let GetDataOnlyFunc = async () => {
     return await LocalFromLowDb;
 };
 
+let GetDataCountFunc = async () => {
+    let LocalFromLowDb = await StartFuncreadFile();
+
+    return await LocalFromLowDb;
+};
+
 let GetLastRowFunc = async () => {
     let LocalFromLowDb = await lastRow();
 
@@ -20,5 +26,5 @@ let GetLastRowFunc = async () => {
 };
 
 export {
-    GetFunc, GetDataOnlyFunc, GetLastRowFunc
+    GetFunc, GetDataOnlyFunc, GetLastRowFunc, GetDataCountFunc
 };
