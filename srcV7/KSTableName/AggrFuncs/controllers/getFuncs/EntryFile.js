@@ -1,5 +1,5 @@
 import {
-    GetFunc as GetFuncRepo, GetDataOnlyFunc as GetDataOnlyFuncRepo
+    GetFunc as GetFuncRepo, GetDataOnlyFunc, GetDataCountFunc as GetDataCountFuncRepo
 } from '../../repos/getFuncs/EntryFile.js';
 
 let GetFunc = async (req, res) => {
@@ -13,8 +13,13 @@ let GetFunc = async (req, res) => {
     res.status(200).json(LocalFromRepo);
 };
 
-let GetDataOnlyFunc = async (req, res) => {
-    let LocalFromRepo = await GetDataOnlyFuncRepo();
+let GetDataCountFunc = async (req, res) => {
+    let localKey = req.params.inKey
+    let localValue = req.params.inValue
+
+    let LocalFromRepo = await GetDataCountFuncRepo({
+        inKey: localKey, inValue: localValue
+    });
 
     if (LocalFromRepo.KTF === false) {
         res.status(500).send(LocalFromRepo.KReason);
@@ -25,5 +30,5 @@ let GetDataOnlyFunc = async (req, res) => {
 };
 
 export {
-    GetFunc, GetDataOnlyFunc
+    GetFunc, GetDataOnlyFunc, GetDataCountFunc
 };
