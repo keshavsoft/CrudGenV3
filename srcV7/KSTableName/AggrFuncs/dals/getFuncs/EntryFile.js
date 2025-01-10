@@ -1,6 +1,6 @@
 import { StartFunc as ReadFromFile } from '../../kLowDb/ReadFromFile/getFunc.js';
 import { StartFunc as getRowFunc } from '../../kLowDb/ReadFromFile/getRowFunc.js';
-import { StartFunc as getRowFunc } from '../../kLowDb/ReadFromFile/getRowFunc.js';
+import { StartFunc as getRowCountFunc } from '../../kLowDb/ReadFromFile/getRowCountFunc.js';
 
 let GetFunc = () => {
     let LocalFromLowDb = ReadFromFile();
@@ -15,7 +15,7 @@ let GetDataOnlyFunc = () => {
 };
 
 let GetDataCountFunc = ({ inKey, inValue }) => {
-    let LocalFromLowDb = getRowFunc({ inKey, inValue });
+    let LocalFromLowDb = getRowCountFunc({ inKey, inValue });
 
     return LocalFromLowDb;
 };
