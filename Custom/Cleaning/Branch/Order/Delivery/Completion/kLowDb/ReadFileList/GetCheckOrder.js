@@ -2,51 +2,45 @@ import { StartFunc as QrCodes } from '../CommonFuncs/QrCodes.js';
 import { StartFunc as F_F_Completion_Scan } from '../CommonFuncs/F_F_Completion_Scan.js';
 import { StartFunc as F_F_Pressing_Return_Scan } from '../CommonFuncs/F_F_Pressing_Return_Scan.js';
 import { StartFunc as EntryCancelScan } from '../CommonFuncs/F_F_Entry_Return_Scan.js';
-import { StartFunc as BranchTable } from '../CommonFuncs/BranchTable.js';
 import { StartFunc as To_Delivery_Scan } from '../CommonFuncs/To_Delivery_Scan.js';
 
 let StartFunc = ({ inOrderId, inBranch }) => {
+    // let LocalFindValue = new Date().toLocaleDateString('en-GB').replace(/\//g, '/');
     let LocalOrderId = inOrderId;
     let LocalBranch = inBranch;
 
     const LocalQrCodes = QrCodes();
+
     const LocalF_F_Completion_Scan = F_F_Completion_Scan();
     const LocalF_F_Pressing_Return_Scan = F_F_Pressing_Return_Scan();
     const LocalEntryCancelScan = EntryCancelScan();
-    const LocalDelivery = To_Delivery_Scan();
+    const LocalTo_Delivery_Scan = To_Delivery_Scan();
 
-    const LocalBranchTable = BranchTable(LocalBranch);
+    // console.log("LocalTo_Delivery_Scan;",LocalTo_Delivery_Scan);
 
     let LocalFilterQrCodes = LocalQrCodes.filter(e => e.BookingData.OrderData.BranchName === LocalBranch && e.OrderNumber == LocalOrderId);
-    let LocalFindOrder = LocalBranchTable.find(e => e.pk == LocalOrderId);
 
     if (LocalFilterQrCodes.length === 0) return false;
-    if (LocalFindOrder === undefined) return false;
 
     let jVarLocalTransformedData = jFLocalMergeFunc({
         inOrederQrs: LocalFilterQrCodes,
         inFFCompletionScan: LocalF_F_Completion_Scan,
         inF_F_Pressing_Return_Scan: LocalF_F_Pressing_Return_Scan,
         inEntryCancelScan: LocalEntryCancelScan,
-        inDeliveryScan:LocalDelivery
+        inTo_Delivery_Scan: LocalTo_Delivery_Scan
     });
-    let LocalReturnItemsSettlement = LocalReturnAmtFuncd({ inQrData: jVarLocalTransformedData });
-
-    let LocalArrayReverseData = {};
-    LocalArrayReverseData.QrCodes = jVarLocalTransformedData.slice().reverse();
-    LocalArrayReverseData.OrderAsIs = LocalFindOrder;
-    LocalArrayReverseData.ReturnSettlement = LocalReturnItemsSettlement;
+    let LocalArrayReverseData = jVarLocalTransformedData.slice().reverse();
 
     return LocalArrayReverseData;
 };
 
-let jFLocalMergeFunc = ({ inOrederQrs, inEntryCancelScan, inFFCompletionScan, inF_F_Pressing_Return_Scan,inDeliveryScan }) => {
+let jFLocalMergeFunc = ({ inOrederQrs, inEntryCancelScan, inFFCompletionScan, inF_F_Pressing_Return_Scan, inTo_Delivery_Scan }) => {
 
     let jVarLocalReturnObject = inOrederQrs.map(loopDc => {
         const LocalEntryCancelScan = inEntryCancelScan.some(qr => qr.QrCodeId == loopDc.pk);
         const LocaliPressing_Return = inF_F_Pressing_Return_Scan.some(qr => qr.QrCodeId == loopDc.pk);
         const LocalCompletion = inFFCompletionScan.some(qr => qr.QrCodeId == loopDc.pk);
-        const LocalDelivery= inDeliveryScan.some(qr => qr.QrCodeId == loopDc.pk);
+        const LocalDelivery = inTo_Delivery_Scan.some(qr => qr.QrCodeId == loopDc.pk);
 
 
         // loopDc.TimeSpan = TimeSpan({ DateTime: loopDc.DateTime });
@@ -70,8 +64,6 @@ let jFLocalMergeFunc = ({ inOrederQrs, inEntryCancelScan, inFFCompletionScan, in
 
     return jVarLocalReturnObject;
 };
-const LocalReturnAmtFuncd = ({ inQrData }) => { const total = inQrData.reduce((sum, element) => (element.EntryReturn || element.ProcessReturn) ? sum + parseInt(element.Rate) : sum, 0 );
-    const GST = total * 0.18; const CGST = GST / 2; const SGST = GST / 2; const GTotal = total + GST; return { Total: total, GST: GST.toFixed(2), CGST: CGST.toFixed(2), SGST: SGST.toFixed(2), GTotal: GTotal.toFixed(2) }; };
 
 function TimeSpan({ DateTime }) {
     var diffMs = new Date() - new Date(DateTime);
@@ -92,4 +84,3 @@ function TimeSpan({ DateTime }) {
 };
 
 export { StartFunc };
-// console.log(StartFunc({ inOrderId: "1", inBranch: "KKD" }))
