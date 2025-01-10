@@ -7,7 +7,7 @@ let GetFunc = () => {
     return LocalFromLowDb;
 };
 
-let GetDataOnlyFunc = ({ inId }) => {
+let GetDataOnlyFunc = () => {
     let LocalFromLowDb = getRowFunc();
 
     return LocalFromLowDb;

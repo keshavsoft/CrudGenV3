@@ -1,8 +1,6 @@
 import { StartFunc as StartFuncPullData } from "../PullData/EntryFile.js";
 
 let StartFunc = () => {
-  let LocalId = parseInt(inId);
-
   let LocalReturnData = { KTF: false };
 
   let LocalStartFuncPullData = StartFuncPullData();
@@ -16,7 +14,7 @@ let StartFunc = () => {
   db.read();
 
   LocalReturnData.KTF = true;
-  LocalReturnData.JsonData = db.data.lenth;
+  LocalReturnData.JsonData = db.data.length;
 
   return LocalReturnData;
 };
