@@ -3,24 +3,21 @@ import { StartFunc as WashingScan } from '../CommonFuncs/PressingScan.js';
 import { StartFunc as EntryScan } from '../CommonFuncs/WashingScan.js';
 import { StartFunc as EntryCancelScan } from '../CommonFuncs/PressingCancelScan.js';
 import { StartFunc as WashingDC } from '../CommonFuncs/PressingDC.js';
-import { StartFunc as ReWashScan } from '../CommonFuncs/ReWashScan.js';
+// import { StartFunc as ReWashScan } from '../CommonFuncs/ReWashScan.js';
+import { StartFunc as ReWashScan } from '../CommonFuncs/Press_ReWashScan.js';
+
 
 let StartFunc = ({ inFactory }) => {
     // let LocalFindValue = new Date().toLocaleDateString('en-GB').replace(/\//g, '/');
     let LocalFactory = inFactory;
 
     const Qrdb = QrCodes();
-  
     const WashingScandb = WashingScan();
-  
     const EntryScandb = EntryScan();
-
     const EntryCancelScandb = EntryCancelScan();
- 
     const WashingDCdb = WashingDC();
-    
     const ReWashScandb = ReWashScan();
-   
+
     let LocalFilterWashingScan = WashingScandb.filter(e => e.FactoryName === LocalFactory);
 
     let LocalFilterQr = Qrdb.filter(e => e.location === LocalFactory);
@@ -32,8 +29,6 @@ let StartFunc = ({ inFactory }) => {
     let LocalFilterEntryScanData = LocalFilterEntryScan.filter(loopQr =>
         !LocalFilterCancelScan.some(loopScan => loopScan.QrCodeId == loopQr.QrCodeId)
     );
-
-
 
     let jVarLocalTransformedData = jFLocalMergeFunc({
         inQrData: LocalFilterQr,
@@ -57,7 +52,7 @@ let jFLocalMergeFunc = ({ inQrData, inScandata, inEntryScan, inEntryCancelScan, 
         const match = inEntryScan.some(loopEntryScan => loopEntryScan.QrCodeId == loopScan.QrCodeId);
         const CheckEntryReturn = inEntryCancelScan.some(loopEntryReturnScan => loopEntryReturnScan.QrCodeId == loopScan.QrCodeId);
         const matchedWashingDC = inWashingDC.find(loopDC => loopDC.pk == loopScan.VoucherRef);
-        const matchRewashScan = inRewashScan.some(loopReWashScan => loopReWashScan.QrCodeId == loopScan.QrCodeId);
+        const matchRewashScan = inRewashScan.some(loopReWashScan => loopReWashScan.QrCodeId == loopScan.QrCodeId && loopReWashScan.ReWash);
 
         return {
             OrderNumber: matchedRecord?.GenerateReference.ReferncePk,
