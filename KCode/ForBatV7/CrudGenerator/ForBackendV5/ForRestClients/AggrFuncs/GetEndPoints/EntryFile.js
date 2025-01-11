@@ -39,7 +39,7 @@ const Home = ({ inFrom, inTo }) => {
 };
 
 const DataOnly = ({ inFrom, inTo }) => {
-    const LocalEndPoint = "DataOnly";
+    const LocalEndPoint = "Count";
     let LocalFileData = `GET http://localhost:${inFrom}/${CommonAggrFuncs}/${LocalEndPoint}`;
 
     fs.writeFileSync(`${inTo}/${LocalEndPoint}.http`, LocalFileData);
