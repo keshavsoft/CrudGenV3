@@ -4,7 +4,7 @@ import { StartFunc as endPointsNeeded } from "./endPointsNeeded.js";
 
 import dotenv from 'dotenv';
 dotenv.config();
-
+            
 let CommonDataPk = process.env.DataPk;
 
 let LocalFilesArray = StartFuncReadDataSchema({ inDataPk: CommonDataPk });

@@ -3,7 +3,7 @@ import { StartFunc as getRowFunc } from '../../kLowDb/ReadFromFile/getRowFunc.js
 import { StartFunc as getRowCountFunc } from '../../kLowDb/ReadFromFile/getRowCountFunc.js';
 
 let GetFunc = () => {
-    let LocalFromLowDb = ReadFromFile();
+    let LocalFromLowDb = getRowFunc();
 
     return LocalFromLowDb;
 };

@@ -1,20 +1,12 @@
-import { StartFunc as StartFuncPullData } from "../PullData/EntryFile.js";
+import { StartFunc as StartFuncPullData } from "../../../CommonPull/kLowDb/PullData/returnAsArray.js";
 
 let StartFunc = () => {
   let LocalReturnData = { KTF: false };
 
   let LocalStartFuncPullData = StartFuncPullData();
 
-  if ("error" in LocalStartFuncPullData) {
-    LocalReturnData.KReason = LocalStartFuncPullData.error;
-    return LocalReturnData;
-  };
-
-  const db = LocalStartFuncPullData.inDb;
-  db.read();
-
   LocalReturnData.KTF = true;
-  LocalReturnData.JsonData = db.data.length;
+  LocalReturnData.JsonData = LocalStartFuncPullData.length;
 
   return LocalReturnData;
 };

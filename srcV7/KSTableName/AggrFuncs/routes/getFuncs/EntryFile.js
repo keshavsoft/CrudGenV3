@@ -8,6 +8,6 @@ import {
 
 router.get('/', GetFunc);
 router.get('/Count', GetDataOnlyFunc);
-router.get('/Count/:inKey/:inValue', GetDataCountFunc);
+// router.get('/Count/:inKey/:inValue', GetDataCountFunc);
 
 export { router };
