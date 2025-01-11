@@ -11,7 +11,11 @@ let GetFunc = () => {
 let GetDataOnlyFunc = () => {
     let LocalFromLowDb = getRowFunc();
 
-    return LocalFromLowDb;
+    if (LocalFromLowDb.KTF === false) {
+        return false;
+    };
+
+    return LocalFromLowDb.Count;
 };
 
 let GetDataCountFunc = ({ inKey, inValue }) => {
