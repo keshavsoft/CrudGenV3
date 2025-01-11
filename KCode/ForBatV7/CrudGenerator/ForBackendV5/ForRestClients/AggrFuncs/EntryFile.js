@@ -1,6 +1,6 @@
 import { StartFunc as GetEndPoints } from "./GetEndPoints/EntryFile.js";
 
-let StartFunc = ({ inTablesCollection, inTo, inConfigJson }) => {
+let StartFunc = ({ inTablesCollection, inTo }) => {
     GetEndPoints({ inTablesCollection, inTo });
 };
 
