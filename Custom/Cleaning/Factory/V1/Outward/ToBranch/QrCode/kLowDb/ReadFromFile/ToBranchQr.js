@@ -24,10 +24,11 @@ const LocalMergeFunc = ({ inFactoryOut_Qr, inQr }) => {
             VoucherRef: element.VoucherRef,
             VoucherNumber: element.VoucherNumber,
             Rate: LocalFilterData?.Rate,
-            DeliveryDate:LocalFilterData?.DeliveryDateTime,
+            DeliveryDate:new Date(LocalFilterData?.DeliveryDateTime).toLocaleDateString('en-GB'),
+            
             ItemName: LocalFilterData?.ItemName,
             OrderNumber:LocalFilterData?.OrderNumber,
-            OrderDate:LocalFilterData?.BookingData.OrderData.Currentdateandtime,
+            OrderDate:new Date(LocalFilterData?.BookingData.OrderData.Currentdateandtime).toLocaleDateString('en-GB'),
             QrCodeId:LocalFilterData?.pk
         };
 
