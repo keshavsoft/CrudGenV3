@@ -8,6 +8,10 @@ import { router as InWashing } from "./13-InWashing/routes.js";
 import { router as InPressing } from "./14-InPressing/routes.js";
 import { router as InCompletion } from "./15-InCompletion/routes.js";
 import { router as FactoryToBranch } from "./16-FactoryToBranch/routes.js";
+import { router as InRewash } from "./17-InRewash/routes.js";
+
+
+
 
 
 
@@ -17,6 +21,8 @@ router.use("/InWashing", InWashing);
 router.use("/InPressing", InPressing);
 router.use("/InCompletion", InCompletion);
 router.use("/FactoryToBranch", FactoryToBranch);
+router.use("/InRewash", InRewash);
+
 
 
 
