@@ -15,7 +15,7 @@ const jfMergeData = ({ inDc, inQr, inFactory }) => {
     return inDc.map(element => {
 
         element.DateTime = new Date(element?.DateTime).toLocaleDateString('en-GB'); // dd/mm/yyyy format
-        element.QrCount = inQr.filter(qr => qr.RefDC == element.VoucherRef && qr.BranchName == element.BranchName && qr.FactoryName == inFactory).length;
+        element.QrCount = inQr.filter(qr => qr.VoucherRef == element.RefDC && qr.BranchName == element.BranchName && qr.FactoryName == inFactory).length;
         return element;
     });
 

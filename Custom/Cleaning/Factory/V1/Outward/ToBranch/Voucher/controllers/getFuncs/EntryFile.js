@@ -4,8 +4,6 @@ import {
 } from '../../repos/getFuncs/EntryFile.js';
 
 let GetIdFunc = (req, res) => {
-    console.log("hhhhhhhhhh");
-
     let LocalParams = req.params;
     let LocalId = LocalParams.inId;
     let LocalFactory = LocalParams.inFactory;
