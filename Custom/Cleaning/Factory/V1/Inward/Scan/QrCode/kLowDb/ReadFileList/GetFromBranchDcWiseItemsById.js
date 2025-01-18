@@ -4,7 +4,6 @@ import { StartFunc as BranchDc } from '../CommonFuncs/BranchDc.js';
 import { StartFunc as EntryScan } from '../CommonFuncs/EntryScan.js';
 import { StartFunc as EntryCancelScan } from '../CommonFuncs/EntryCancelScan.js';
 
-
 let StartFunc = ({ inFactory, inId }) => {
     // let LocalFindValue = new Date().toLocaleDateString('en-GB').replace(/\//g, '/');
     let LocalFactory = inFactory;
@@ -14,24 +13,21 @@ let StartFunc = ({ inFactory, inId }) => {
     const EntryScandb = BranchScan();
     const EntryScdb = EntryScan();
     const EntryCancelScandb = EntryCancelScan();
- console.log("EntryScdb,EntryCancelScandb",EntryScdb,EntryCancelScandb);
- 
+
     let LocalFilterBranchDC = BranchDcdb.filter(e => e.pk == LocalId);
-
     let LocalFilterQr = Qrdb.filter(e => e.location === LocalFactory);
-
     let LocalFilterEntryScan = EntryScandb.filter(e => e.DCFactory === LocalFactory);
 
     let LocalEntryScanAndDcMergeData = LoclaEntryScanAndDcMergeFunc({
         inEntryScan: LocalFilterEntryScan,
-        inBranchDc: LocalFilterBranchDC,
-        inEntrySc: EntryScdb,
-        inEntryCancelScan: EntryCancelScandb
+        inBranchDc: LocalFilterBranchDC
     });
 
     let jVarLocalTransformedData = jFLocalMergeFunc({
         inQrData: LocalFilterQr,
-        inEntryScan: LocalEntryScanAndDcMergeData
+        inEntryScan: LocalEntryScanAndDcMergeData,
+        inEntrySc: EntryScdb,
+        inEntryCancelScan: EntryCancelScandb
     });
 
     let LocalArrayReverseData = jVarLocalTransformedData.slice().reverse();
@@ -44,9 +40,6 @@ let jFLocalMergeFunc = ({ inQrData, inEntryScan, inEntrySc, inEntryCancelScan })
         const matchedRecord = inQrData.find(loopQr => loopQr.pk == loopScan.QrCodeId);
         const matchedEntryScan = inEntrySc.some(loopQr => loopQr.QrCodeId == loopScan.QrCodeId);
         const matchedEntryCancelScan = inEntryCancelScan.some(loopQr => loopQr.QrCodeId == loopScan.QrCodeId);
-
-        // const match = inEntryScan.some(loopEntryScan => loopEntryScan.QrCodeId == loopScan.QrCodeId);
-
 
         return {
             OrderNumber: matchedRecord?.GenerateReference.ReferncePk,
