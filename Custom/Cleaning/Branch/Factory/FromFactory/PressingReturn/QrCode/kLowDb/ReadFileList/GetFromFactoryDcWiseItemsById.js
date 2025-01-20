@@ -35,6 +35,8 @@ let StartFunc = ({ inBranch, inId }) => {
 let jFLocalMergeFunc = ({ inQrData, inEntryScan }) => {
     let jVarLocalReturnObject = inEntryScan.map(loopScan => {
         const matchedRecord = inQrData.find(loopQr => loopQr.pk == loopScan.QrCodeId);
+        const matche = inEntryScan.some(loopQr => loopQr.QrCodeId == loopScan.QrCodeId);
+
 
         return {
             OrderNumber: matchedRecord?.GenerateReference.ReferncePk,
@@ -42,7 +44,7 @@ let jFLocalMergeFunc = ({ inQrData, inEntryScan }) => {
             DeliveryDate: new Date(matchedRecord?.DeliveryDateTime).toLocaleDateString('en-GB'),
             ItemName: matchedRecord?.ItemName,
             Rate: matchedRecord?.Rate,
-
+            FFProcessStatus:matche,
             VoucherNumber: loopScan?.VoucherNumber,
             QrCodeId: loopScan.QrCodeId,
             DCDate: new Date(loopScan?.Date).toLocaleDateString('en-GB'),
