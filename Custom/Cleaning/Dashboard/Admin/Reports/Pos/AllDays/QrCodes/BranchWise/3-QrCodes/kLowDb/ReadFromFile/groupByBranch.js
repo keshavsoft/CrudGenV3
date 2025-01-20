@@ -11,13 +11,22 @@ let StartFunc = ({ inDataAsArray }) => {
     let LocalReturnArray = [];
 
     for (const [key, value] of Object.entries(grouped)) {
+        const LoopInsideArray = value;
+        const LoopInsideQrCodes = LoopInsideArray.map(element => {
+            return element.QrCodeId
+        });
+
+        // console.log("LoopInside : ", value, LoopInside);
+
         LocalReturnArray.push({
             BranchName: key,
-            QrCount: value.length
+            QrCount: value.length,
+            QrMax: LoopInsideQrCodes.reduce((a, b) => a > b ? a : b),
+            QrMin: LoopInsideQrCodes.reduce((a, b) => a < b ? a : b)
         });
-    }
+    };
 
-    LocalReturnArray.sort((b,a) => b.QrCount - a.QrCount);
+    LocalReturnArray.sort((b, a) => b.QrCount - a.QrCount);
 
     return LocalReturnArray;
 };
