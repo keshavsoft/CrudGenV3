@@ -1,4 +1,4 @@
-let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanData, inPressingScanData, inCompletionScanData, inPressingRejectScanData, inFactoryToBranch,inEntryRejectScanData, inPressingReWashScanData }) => {
+let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanData, inPressingScanData, inCompletionScanData, inPressingRejectScanData, inFactoryToBranch,inEntryRejectScanData, inPressingReWashScanData, inDeliveryData }) => {
 
     let jVarLocalReturnObject = inQrData.map(loopQr => {
         const loopBranchScanFindData = inBranchScandata.find(loopScan => loopScan.QrCodeId == loopQr.pk);
@@ -10,6 +10,8 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanDat
         const LoopInsideFindFactoryToBranchScan = inFactoryToBranch.find(loopScan => loopScan.QrCodeId == loopQr.pk);
         const LoopInsideFindEntryRejectScan = inEntryRejectScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
         const LoopInsideFindPressingRewashScan = inPressingReWashScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
+        const LoopInsideFindDelivery = inDeliveryData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
+
 
 
 
@@ -70,6 +72,11 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanDat
             CompletedScanFactory_DC: LoopInsideFindFactoryToBranchScan?.VoucherRef,
             CompletedScanFactory_DCDate: LoopInsideFindFactoryToBranchScan?.DCDate,
             CompletedScanFactory_FactoryName: LoopInsideFindFactoryToBranchScan?.FactoryName,
+
+            DeliveryScan: LoopInsideFindDelivery ? true : false,
+            DeliveryScan_DC: LoopInsideFindDelivery?.VoucherRef,
+            DeliveryScan_DCDate: LoopInsideFindDelivery?.DCDate,
+            DeliveryScan_FactoryName: LoopInsideFindDelivery?.FactoryName,
 
             BranchName: loopQr.BookingData.OrderData.BranchName
         };
