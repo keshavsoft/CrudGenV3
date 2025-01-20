@@ -13,6 +13,7 @@ call npm run AdminAllDays-CommonConfig-QrCodeAtStage-BranchFilter
 call npm run AdminAllDays-CommonConfig-QrCodeAtStage-BranchWise
 call npm run Admin-Masters
 call npm run Accounts
+call npm run Dcs
 
 xcopy .\publicDir ..\CrudGenV3\public\Laundry\Admin /h /i /c /k /e /r /y
 
