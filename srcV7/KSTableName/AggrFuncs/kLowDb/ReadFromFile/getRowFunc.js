@@ -6,7 +6,7 @@ let StartFunc = () => {
   let LocalStartFuncPullData = StartFuncPullData();
 
   LocalReturnData.KTF = true;
-  LocalReturnData.JsonData = LocalStartFuncPullData.length;
+  LocalReturnData.Count = LocalStartFuncPullData.length;
 
   return LocalReturnData;
 };
