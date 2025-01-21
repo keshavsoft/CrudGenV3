@@ -19,9 +19,6 @@ import { router as PressingReturn } from "./14-PressingReturn/routes.js";
 import { router as PressingRewash } from "./15-PressingRewash/routes.js";
 import { router as FactoryToBranch } from "./16-FactoryToBranch/routes.js";
 
-
-
-
 router.use("/QrCodes", QrCodes);
 router.use("/Orders", Orders);
 router.use("/ItemWise", ItemWise);
