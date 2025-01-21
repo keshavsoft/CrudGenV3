@@ -13,16 +13,17 @@ const StartFunc = ({ inBranch }) => {
     const TransformedData = MergeFunc({
         BranchDc: LocalFilterBranchDc,
         EntryCancelScan: EntryCancelScanData,
-        FromFactoryCancelScan: FromFactoryCancelScanData
+        FromFactoryCancelScan: FromFactoryCancelScanData,
+        inBranch: LocalBranch
     });
 
     return TransformedData.slice().reverse();
 };
 
-const MergeFunc = ({ BranchDc, EntryCancelScan, FromFactoryCancelScan }) => {
+const MergeFunc = ({ BranchDc, EntryCancelScan, FromFactoryCancelScan, inBranch }) => {
     return BranchDc.map(dc => {
-        const Sent = EntryCancelScan.filter(qr => qr.VoucherRef == dc.pk).length;
-        const Scanned = FromFactoryCancelScan.filter(qr => qr.VoucherRef == dc.pk).length;
+        const Sent = EntryCancelScan.filter(qr => qr.VoucherRef == dc.RefDC && qr.BranchName === inBranch).length;
+        const Scanned = FromFactoryCancelScan.filter(qr => qr.VoucherRef == dc.RefDC).length;
 
         return {
             ...dc,
