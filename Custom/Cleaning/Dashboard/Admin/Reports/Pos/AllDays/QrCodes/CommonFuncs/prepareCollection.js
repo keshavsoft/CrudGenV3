@@ -21,6 +21,11 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inPress_ReWashSc
             DeliveryDateTime: loopQr.DeliveryDateTime,
             location: loopQr.location,
             OrderDateTime: loopQr.BookingData.OrderData.Currentdateandtime,
+            OrderNumber: loopQr.OrderNumber,
+
+            CustomerName: loopQr.BookingData.CustomerData.CustomerName,
+            CustomerMobileNumber: loopQr.BookingData.CustomerData.Mobile,
+            
             // Status: match,  
             BranchScan: loopBranchScanFindData ? true : false,
             BranchScan_DC: loopBranchScanFindData?.VoucherRef,
