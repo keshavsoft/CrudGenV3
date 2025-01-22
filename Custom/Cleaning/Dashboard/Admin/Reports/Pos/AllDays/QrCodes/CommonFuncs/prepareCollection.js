@@ -9,6 +9,8 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inPress_ReWashSc
         const LoopInsideFindinPress_ReWashScan = inPress_ReWashScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
         const LoopInsideFindEntryCancelScan = inEntryCancelScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
         const LoopInsideFactoryToBranch_Scan = inFactoryToBranch_Scan.find(loopScan => loopScan.QrCodeId == loopQr.pk);
+        
+        const { BookingData: BookingDetails } = loopQr;
 
         return {
             QrCodeId: loopQr.pk,
@@ -18,11 +20,12 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inPress_ReWashSc
             OrderNo: loopQr.GenerateReference.ReferncePk,
             DeliveryDateTime: loopQr.DeliveryDateTime,
             location: loopQr.location,
-            OrderDateTime: loopQr.BookingData.OrderData.Currentdateandtime,
             OrderNumber: loopQr.OrderNumber,
+            OrderDateTime:  BookingDetails.OrderData.Currentdateandtime,
 
-            CustomerName: loopQr.BookingData.CustomerData.CustomerName,
-            CustomerMobileNumber: loopQr.BookingData.CustomerData.Mobile,
+            CustomerName: BookingDetails.CustomerData.CustomerName,
+            CustomerMobileNumber: BookingDetails.CustomerData.Mobile,
+
             //BookingData complete object
             BookingData: loopQr.BookingData,
 
