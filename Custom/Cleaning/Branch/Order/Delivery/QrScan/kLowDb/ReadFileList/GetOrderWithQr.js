@@ -1,7 +1,4 @@
 import { StartFunc as QrCodes } from '../CommonFuncs/QrCodes.js';
-import { StartFunc as F_F_Completion_Scan } from '../CommonFuncs/F_F_Completion_Scan.js';
-import { StartFunc as F_F_Pressing_Return_Scan } from '../CommonFuncs/F_F_Pressing_Return_Scan.js';
-import { StartFunc as EntryCancelScan } from '../CommonFuncs/F_F_Entry_Return_Scan.js';
 import { StartFunc as To_Delivery_Scan } from '../CommonFuncs/To_Delivery_Scan.js';
 
 const StartFunc = ({ inOrderId, inBranch }) => {
@@ -9,51 +6,35 @@ const StartFunc = ({ inOrderId, inBranch }) => {
     const LocalBranch = inBranch;
 
     const LocalQrCodes = QrCodes();
-    const LocalF_F_Completion_Scan = F_F_Completion_Scan();
-    const LocalF_F_Pressing_Return_Scan = F_F_Pressing_Return_Scan();
-    const LocalEntryCancelScan = EntryCancelScan();
     const LocalTo_Delivery_Scan = To_Delivery_Scan();
 
     const LocalFilterQrCodes = LocalQrCodes.filter(e => e.BookingData.OrderData.BranchName === LocalBranch && e.OrderNumber == LocalOrderId);
-    if (LocalFilterQrCodes.length === 0) return false;
+    const LocalFilterDeliveryScan = LocalTo_Delivery_Scan.filter(e => e.BranchName === LocalBranch && e.OrderNumber == LocalOrderId);
 
-    const jVarLocalTransformedData = jFLocalMergeFunc({
-        inOrederQrs: LocalFilterQrCodes,
-        inFFCompletionScan: LocalF_F_Completion_Scan,
-        inF_F_Pressing_Return_Scan: LocalF_F_Pressing_Return_Scan,
-        inEntryCancelScan: LocalEntryCancelScan
-    });
-
-    const unmatchedRecords = jVarLocalTransformedData.filter(obj1 => !LocalTo_Delivery_Scan.some(obj2 => obj2.QrCodeId === obj1.QrCodeId)).reverse();
-    const LocarOrderLength = LocalTo_Delivery_Scan.filter(el => el.OrderNumber == LocalOrderId).length;
-
-    return {
-        QrCount: LocarOrderLength,
-        AsIs: unmatchedRecords,
-        OrderData: {
-            CustomerName: unmatchedRecords[0].CustomerName,
-            CustomerMobile: unmatchedRecords[0].CustomerMobile,
-            OrderNumber: unmatchedRecords[0].OrderNumber
-        }
-    };
+    return jFLocalMergeFunc({ inOrederQrs: LocalFilterDeliveryScan, inEntryCancelScan: LocalFilterQrCodes });
 };
 
-const jFLocalMergeFunc = ({ inOrederQrs, inEntryCancelScan, inFFCompletionScan, inF_F_Pressing_Return_Scan }) => {
-    return inOrederQrs.map(loopDc => ({
-        OrderNumber: loopDc.OrderNumber,
-        CustomerName: loopDc.BookingData.CustomerData.CustomerName,
-        CustomerMobile: loopDc.BookingData.CustomerData.CustomerMobile,
-        OrderDate: new Date(loopDc.BookingData.OrderData.Currentdateandtime).toLocaleDateString('en-GB'),
-        DeliveryDate: new Date(loopDc.DeliveryDateTime).toLocaleDateString('en-GB'),
-        ItemName: loopDc.ItemName,
-        Rate: loopDc.Rate,
-        QrCodeId: loopDc.pk,
-        BranchName: loopDc.BookingData.OrderData.BranchName,
-        EntryReturn: inEntryCancelScan.some(qr => qr.QrCodeId == loopDc.pk),
-        ProcessReturn: inF_F_Pressing_Return_Scan.some(qr => qr.QrCodeId == loopDc.pk),
-        Completion: inFFCompletionScan.some(qr => qr.QrCodeId == loopDc.pk),
-        TimeSpan: TimeSpan({ DateTime: loopDc.DateTime })
-    }));
+const jFLocalMergeFunc = ({ inOrederQrs, inEntryCancelScan }) => {
+    let Localreturndata = inOrederQrs.map(loopDc => {
+        const LocalQrfind = inEntryCancelScan.find(ele => ele.pk == loopDc.QrCodeId);
+
+        return {
+            OrderNumber: LocalQrfind?.OrderNumber,
+            CustomerName: LocalQrfind?.BookingData.CustomerData.CustomerName,
+            CustomerMobileNumber: LocalQrfind?.BookingData.CustomerData.Mobile,
+            OrderDate: new Date(LocalQrfind?.BookingData.OrderData.Currentdateandtime).toLocaleDateString('en-GB'),
+            DeliveryDate: new Date(LocalQrfind?.DeliveryDateTime).toLocaleDateString('en-GB'),
+            ItemName: LocalQrfind?.ItemName,
+            Rate: LocalQrfind?.Rate,
+            QrCodeId: LocalQrfind?.pk,
+            BranchName: LocalQrfind?.BookingData.OrderData.BranchName,
+            TimeSpan: TimeSpan({ DateTime: LocalQrfind?.DateTime }),
+        }
+
+    });
+
+    return Localreturndata
+
 };
 
 const TimeSpan = ({ DateTime }) => {
