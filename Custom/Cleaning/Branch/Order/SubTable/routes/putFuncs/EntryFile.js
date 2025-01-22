@@ -1,9 +1,9 @@
 import express from 'express';
 var router = express.Router();
 
-import { putFunc } from "../../controllers/getFuncs/EntryFile.js";
+import { putFuncs } from "../../controllers/putFuncs/EntryFile.js";
 
-router.put('/ItemsInOrder/:inRow/:inId/:inBranch', putFunc);
+router.put('/ItemsInOrder/:inRow/:inId/:inBranch', putFuncs);
 
 
 export { router };
