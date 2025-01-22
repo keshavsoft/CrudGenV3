@@ -19,7 +19,7 @@ let putFuncs = (req, res) => {
     return;
   }
 
-  res.status(200).send(LocalFromRepo.pk.toString());
+  return res.status(200).json(LocalFromRepo.KTF);
 };
 
 export { putFuncs };

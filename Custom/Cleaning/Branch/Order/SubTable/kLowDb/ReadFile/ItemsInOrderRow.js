@@ -34,7 +34,8 @@ let StartFunc = ({ inRow, inId, inBranch }) => {
         return LocalReturnData;
     };
 
-    LocalReturnData.JsonData = maxRow.ItemsInOrder[LocalinId];
+    let LocalData = maxRow.ItemsInOrder[LocalinId];
+    LocalReturnData.JsonData = { ...LocalData, SubKey: LocalinId };
     LocalReturnData.KTF = true;
 
     return LocalReturnData;

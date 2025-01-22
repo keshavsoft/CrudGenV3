@@ -1,8 +1,7 @@
-// import { StartFunc as EntryScan } from '../../kLowDb/EntryScan/WithChecking/StartFunc.js';
+import { StartFunc as EntryScan } from '../../kLowDb/Alter/ItemsInOrderRowAlter.js';
 
-let putFuncs = ({ inBranch,inId,inRow, inPutBody }) => {
-    console.log("Chandana");    
-    return EntryScan({ inBranch,inId,inRow, inDataToInsert: inPutBody });
+let putFuncs = ({ inBranch, inId, inRow, inPutBody }) => {
+    return EntryScan({ inBranch, inId, inRow, inDataToInsert: inPutBody });
 };
 
 export { putFuncs };
