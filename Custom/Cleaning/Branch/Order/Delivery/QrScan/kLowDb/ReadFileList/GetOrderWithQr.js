@@ -7,34 +7,30 @@ const StartFunc = ({ inOrderId, inBranch }) => {
 
     const LocalQrCodes = QrCodes();
     const LocalTo_Delivery_Scan = To_Delivery_Scan();
-
-    const LocalFilterQrCodes = LocalQrCodes.filter(e => e.BookingData.OrderData.BranchName === LocalBranch && e.OrderNumber == LocalOrderId);
     const LocalFilterDeliveryScan = LocalTo_Delivery_Scan.filter(e => e.BranchName === LocalBranch && e.OrderNumber == LocalOrderId);
 
-    return jFLocalMergeFunc({ inOrederQrs: LocalFilterDeliveryScan, inEntryCancelScan: LocalFilterQrCodes });
+    return jFLocalMergeFunc({ inOrederQrs: LocalQrCodes, inDeliveryScan: LocalFilterDeliveryScan });
 };
 
-const jFLocalMergeFunc = ({ inOrederQrs, inEntryCancelScan }) => {
-    let Localreturndata = inOrederQrs.map(loopDc => {
-        const LocalQrfind = inEntryCancelScan.find(ele => ele.pk == loopDc.QrCodeId);
+const jFLocalMergeFunc = ({ inOrederQrs, inDeliveryScan }) => {
+    let Localreturndata = inDeliveryScan.map(loopDc => {
+        const LocalQrfind = inOrederQrs.find(ele => ele.pk == loopDc.QrCodeId);
 
         return {
-            OrderNumber: LocalQrfind?.OrderNumber,
+            OrderNumber: loopDc?.OrderNumber,
             CustomerName: LocalQrfind?.BookingData.CustomerData.CustomerName,
             CustomerMobileNumber: LocalQrfind?.BookingData.CustomerData.Mobile,
             OrderDate: new Date(LocalQrfind?.BookingData.OrderData.Currentdateandtime).toLocaleDateString('en-GB'),
             DeliveryDate: new Date(LocalQrfind?.DeliveryDateTime).toLocaleDateString('en-GB'),
             ItemName: LocalQrfind?.ItemName,
             Rate: LocalQrfind?.Rate,
-            QrCodeId: LocalQrfind?.pk,
-            BranchName: LocalQrfind?.BookingData.OrderData.BranchName,
-            TimeSpan: TimeSpan({ DateTime: LocalQrfind?.DateTime }),
+            QrCodeId: loopDc?.QrCodeId,
+            BranchName: loopDc?.BranchName,
+            TimeSpan: TimeSpan({ DateTime: loopDc?.DateTime }),
         }
-
     });
 
     return Localreturndata
-
 };
 
 const TimeSpan = ({ DateTime }) => {

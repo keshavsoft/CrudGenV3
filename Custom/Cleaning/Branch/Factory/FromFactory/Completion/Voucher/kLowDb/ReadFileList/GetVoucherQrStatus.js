@@ -1,11 +1,11 @@
-import { StartFunc as EntryCancelDc } from '../CommonFuncs/FromApi/FactoryOut_DC.js';
-import { StartFunc as EntryCancelScan } from '../CommonFuncs/FromApi/FactoryOut_QrCodeScan.js';
+import { StartFunc as FactoryOut_DC } from '../CommonFuncs/FromApi/FactoryOut_DC.js';
+import { StartFunc as FactoryOut_QrCodeScan } from '../CommonFuncs/FromApi/FactoryOut_QrCodeScan.js';
 import { StartFunc as FromFactoryCancelScan } from '../CommonFuncs/FromApi/FromFactoryCancelScan.js';
 
 const StartFunc = ({ inBranch }) => {
     let LocalBranch = inBranch;
-    const EntryCancelDcData = EntryCancelDc();
-    const EntryCancelScanData = EntryCancelScan();
+    const EntryCancelDcData = FactoryOut_DC();
+    const EntryCancelScanData = FactoryOut_QrCodeScan();
     const FromFactoryCancelScanData = FromFactoryCancelScan();
 
     const LocalFilterBranchDc = EntryCancelDcData.filter(e => e.BranchName === LocalBranch);
@@ -22,8 +22,8 @@ const StartFunc = ({ inBranch }) => {
 
 const MergeFunc = ({ BranchDc, EntryCancelScan, FromFactoryCancelScan, inBranch }) => {
     return BranchDc.map(dc => {
-        const Sent = EntryCancelScan.filter(qr => qr.VoucherRef == dc.RefDC && qr.BranchName === inBranch).length;
-        const Scanned = FromFactoryCancelScan.filter(qr => qr.VoucherRef == dc.RefDC).length;
+        const Sent = EntryCancelScan.filter(qr => qr.VoucherRef == dc.pk && qr.BranchName === inBranch).length;
+        const Scanned = FromFactoryCancelScan.filter(qr => qr.VoucherRef == dc.pk).length;
 
         return {
             ...dc,

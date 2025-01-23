@@ -12,7 +12,7 @@ const StartFunc = ({ inDataToInsert, inData, inColumns }) => {
 
     let MaxPk = (Math.max(...numberArray, 0) + 1);
 
-    LocalReturnData.InsertData = { ...LocalDefalultKeys, ...inDataToInsert, UuId: MaxPk, pk: MaxPk, DateTime: Timestamp() };
+    LocalReturnData.InsertData = { ...LocalDefalultKeys, ...inDataToInsert, ReWash: false, UuId: MaxPk, pk: MaxPk, DateTime: Timestamp() };
     LocalReturnData.KTF = true;
     return LocalReturnData
 };
