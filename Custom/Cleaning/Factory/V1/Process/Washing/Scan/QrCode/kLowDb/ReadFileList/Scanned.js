@@ -10,19 +10,12 @@ let StartFunc = ({ inFactory }) => {
     let LocalFactory = inFactory;
 
     const Qrdb = QrCodes();
-
     const WashingScandb = WashingScan();
-
     const EntryScandb = EntryScan();
-
     const EntryCancelScandb = EntryCancelScan();
-
     const WashingDCdb = WashingDC();
-
     const ReWashScandb = ReWashScan();
-
     let LocalFilterWashingScan = WashingScandb.filter(e => e.FactoryName === LocalFactory);
-
     let LocalFilterQr = Qrdb.filter(e => e.location === LocalFactory);
     let LocalFilterEntryScan = EntryScandb.filter(e => e.FactoryName === LocalFactory);
     let LocalFilterCancelScan = EntryCancelScandb.filter(e => e.FactorySelected === LocalFactory);
@@ -57,7 +50,7 @@ let jFLocalMergeFunc = ({ inQrData, inScandata, inEntryScan, inEntryCancelScan, 
         const match = inEntryScan.some(loopEntryScan => loopEntryScan.QrCodeId == loopScan.QrCodeId);
         const CheckEntryReturn = inEntryCancelScan.some(loopEntryReturnScan => loopEntryReturnScan.QrCodeId == loopScan.QrCodeId);
         const matchedWashingDC = inWashingDC.find(loopDC => loopDC.pk == loopScan.VoucherRef);
-        const matchRewashScan = inRewashScan.some(loopReWashScan => loopReWashScan.QrCodeId == loopScan.QrCodeId);
+
 
         return {
             OrderNumber: matchedRecord?.GenerateReference.ReferncePk,
@@ -65,15 +58,15 @@ let jFLocalMergeFunc = ({ inQrData, inScandata, inEntryScan, inEntryCancelScan, 
             DeliveryDate: new Date(matchedRecord?.DeliveryDateTime).toLocaleDateString('en-GB'),
             ItemName: matchedRecord?.ItemName,
             Rate: matchedRecord?.Rate,
-
+            ReWashStatus: loopScan.ReWash,
             VoucherNumber: matchedWashingDC?.pk,
             DCDate: new Date(matchedWashingDC?.Date).toLocaleDateString('en-GB'),
-
+            RewashStatus: loopScan.ReWash,
             QrCodeId: loopScan.QrCodeId,
             BranchName: matchedRecord?.BookingData.OrderData.BranchName,
             Status: match,
             EntryReturnStarus: CheckEntryReturn,
-            ReWashStatus: matchRewashScan,
+
             TimeSpan: TimeSpan({ DateTime: loopScan.DateTime })
         };
     }).filter(record => record.MatchedRecord !== null);
