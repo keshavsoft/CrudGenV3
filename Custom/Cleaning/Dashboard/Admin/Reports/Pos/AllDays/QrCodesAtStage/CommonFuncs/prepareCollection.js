@@ -1,4 +1,4 @@
-let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanData, inPressingScanData, inCompletionScanData, inPressingRejectScanData, inFactoryToBranch,inEntryRejectScanData, inPressingReWashScanData, inDeliveryData }) => {
+let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanData, inPressingScanData, inCompletionScanData, inPressingRejectScanData, inFactoryToBranch, inEntryRejectScanData, inPressingReWashScanData, inDeliveryData }) => {
 
     let jVarLocalReturnObject = inQrData.map(loopQr => {
         const loopBranchScanFindData = inBranchScandata.find(loopScan => loopScan.QrCodeId == loopQr.pk);
@@ -11,10 +11,6 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanDat
         const LoopInsideFindEntryRejectScan = inEntryRejectScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
         const LoopInsideFindPressingRewashScan = inPressingReWashScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
         const LoopInsideFindDelivery = inDeliveryData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
-
-
-
-
 
         let LoopInsideReturnObject = {
             QrCodeId: loopQr.pk,
@@ -37,7 +33,6 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanDat
             EntryScan_DCDate: LoopInsideFindEntryScan?.DCDate,
             EntryScan_FactoryName: loopBranchScanFindData?.FactoryName,
 
-            
             EntryRejectScan: LoopInsideFindEntryRejectScan ? true : false,
             EntryRejectScan_DC: LoopInsideFindEntryRejectScan?.VoucherRef,
             EntryRejectScan_DCDate: LoopInsideFindEntryRejectScan?.DCDate,
@@ -47,11 +42,13 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanDat
             WashingScan_DC: LoopInsideFindWashingScan?.VoucherRef,
             WashingScan_DCDate: LoopInsideFindWashingScan?.DCDate,
             WashingScan_FactoryName: LoopInsideFindWashingScan?.FactoryName,
+            WashingScan_ReWash: LoopInsideFindWashingScan?.ReWash,
 
             PressingScan: LoopInsideFindPressingScan ? true : false,
             PressingScan_DC: LoopInsideFindPressingScan?.VoucherRef,
             PressingScan_DCDate: LoopInsideFindPressingScan?.DCDate,
             PressingScan_FactoryName: LoopInsideFindPressingScan?.FactoryName,
+            PressingScan_ReWash: LoopInsideFindPressingScan?.ReWash,
 
             PressingReWashScan: LoopInsideFindPressingRewashScan ? true : false,
             PressingReWashScan_DC: LoopInsideFindPressingRewashScan?.VoucherRef,
