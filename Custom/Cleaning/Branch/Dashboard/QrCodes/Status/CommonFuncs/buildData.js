@@ -15,26 +15,11 @@ let StartFunc = () => {
     const QrCodeData = QrCodes();
     const BranchScanData = BranchScan();
     const EntryScanData = EntryScan();
-    // const WashingScanData = WashingScan();
-    // const PressingScanData = PressingScan();
-    // const CompletionScanData = CompletionScan();
-    // const PressingRejectScanData = PressingRejectScan();
-    // const Press_ReWashScanData = Press_ReWashScan();
-    // const EntryCancelScanData = EntryCancelScan();
-    // const FactoryToBranch_Scan = FactoryToBranchScan();
-
 
     let jVarLocalTransformedData = prepareCollection({
         inQrData: QrCodeData,
         inBranchScandata: BranchScanData,
         inEntryScanData: EntryScanData,
-        // inWashingScanData: WashingScanData,
-        // inPressingScanData: PressingScanData,
-        // inCompletionScanData: CompletionScanData,
-        // inPressingRejectScanData: PressingRejectScanData,
-        // inEntryCancelScanData: EntryCancelScanData,
-        // inPress_ReWashScanData: Press_ReWashScanData,
-        // inFactoryToBranch_Scan: FactoryToBranch_Scan,
 
     });
 
