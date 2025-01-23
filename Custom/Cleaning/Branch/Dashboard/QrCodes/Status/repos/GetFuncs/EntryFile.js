@@ -1,16 +1,11 @@
 import {
-    GetAllFuncs as GetAllFuncsDal,
-    GetAsIsFuncs as GetAsIsFuncsDal
+    GetAllFuncs as GetAllFuncsDal
 } from '../../dals/GetFuncs/EntryFile.js';
 
-let GetFuncs = () => {
-    return GetAllFuncsDal();
-};
-
-let GetAsIsFuncs = () => {
-    return GetAsIsFuncsDal();
+let GetFuncs = ({ inBranch }) => {
+    return GetAllFuncsDal({ inBranch });
 };
 
 export {
-    GetFuncs, GetAsIsFuncs
+    GetFuncs
 };

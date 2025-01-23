@@ -1,4 +1,4 @@
-let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData}) => {
+let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inPress_ReWashScanData, inWashingScanData, inPressingScanData, inCompletionScanData, inPressingRejectScanData, inEntryCancelScanData, inFactoryToBranch_Scan }) => {
     let jVarLocalReturnObject = inQrData.map(loopQr => {
         const loopBranchScanFindData = inBranchScandata.find(loopScan => loopScan.QrCodeId == loopQr.pk);
         const LoopInsideFindEntryScan = inEntryScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
