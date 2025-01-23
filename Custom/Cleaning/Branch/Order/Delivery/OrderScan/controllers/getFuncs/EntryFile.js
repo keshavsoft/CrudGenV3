@@ -2,7 +2,9 @@ import {
     GetFunc as GetFuncRepo,
     GetOrderWithQrFunc as GetOrderWithQrFuncRepo,
     GetRowDataFunc as GetRowDataFuncRepo,
-    GetCheckFunc as GetCheckFuncRepo
+    GetCheckFunc as GetCheckFuncRepo,
+    GetCheckStatusFunc as GetCheckStatusFuncRepo
+
 } from '../../repos/getFuncs/EntryFile.js';
 
 let GetFunc = (req, res) => {
@@ -40,6 +42,17 @@ let GetCheckFunc = (req, res) => {
     }
     return res.status(200).json(LocalFromRepo);
 };
+let GetCheckStatusFunc = (req, res) => {
+    let LocalParams = req.params;
+    let LocalBranch = LocalParams.inBranch;
+    let LocalOrderId = LocalParams.OrderId;
+    let LocalFromRepo = GetCheckStatusFuncRepo({ inBranch: LocalBranch, inOrderId: LocalOrderId });
+
+    if (LocalFromRepo === false) {
+        return res.status(500).json(LocalFromRepo);
+    }
+    return res.status(200).json(LocalFromRepo);
+};
 
 
 let GetRowDataFunc = async (req, res) => {
@@ -51,5 +64,5 @@ let GetRowDataFunc = async (req, res) => {
 };
 
 export {
-    GetFunc, GetOrderWithQrFunc, GetRowDataFunc,GetCheckFunc
+    GetFunc, GetOrderWithQrFunc, GetRowDataFunc,GetCheckFunc,GetCheckStatusFunc
 };
