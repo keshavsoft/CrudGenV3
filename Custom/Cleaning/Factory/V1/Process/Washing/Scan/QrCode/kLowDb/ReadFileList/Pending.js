@@ -42,15 +42,16 @@ let jFLocalMergeFunc = ({ inQrData, inScandata, inEntryScan, inRewashScan }) => 
     let jVarLocalReturnObject = inScandata.map(loopScan => {
         const matchedRecord = inQrData.find(loopQr => loopQr.pk == loopScan.QrCodeId);
         const match = inEntryScan.some(loopEntryScan => loopEntryScan.QrCodeId == loopScan.QrCodeId);
-        const RewashStatus = inEntryScan.some((entry) => inRewashScan.some((reWash) => entry.QrCodeId === reWash.QrCodeId))
-
+        const RewashFind = inEntryScan.find(loopEntryScan => loopEntryScan.QrCodeId == loopScan.QrCodeId);
+        
+        
         return {
             OrderNumber: matchedRecord?.GenerateReference.ReferncePk,
             OrderDate: new Date(matchedRecord?.BookingData.OrderData.Currentdateandtime).toLocaleDateString('en-GB'),
             DeliveryDate: new Date(matchedRecord?.DeliveryDateTime).toLocaleDateString('en-GB'),
             ItemName: matchedRecord?.ItemName,
             Rate: matchedRecord?.Rate,
-            ReWashStatus: RewashStatus,
+            ReWashStatus: RewashFind?.ReWash,
             QrCodeId: loopScan.QrCodeId,
             // DCDate: new Date(loopScan?.DCDate).toLocaleDateString('en-GB'),
             BranchName: loopScan?.BranchName,
