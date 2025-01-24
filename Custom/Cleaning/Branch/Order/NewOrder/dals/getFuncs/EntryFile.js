@@ -1,5 +1,6 @@
 import { StartFunc as MaxRow } from '../../kLowDb/ReadFile/MaxRow.js';
 import { StartFunc as inRowOrder } from '../../kLowDb/ReadFile/inRow.js';
+import { StartFunc as Settelment } from '../../kLowDb/ReadFile/Settelment.js';
 
 let GetFunc = ({ inBranch }) => {
 
@@ -15,4 +16,10 @@ let GetOrderShowFunc = ({ inBranch, inRow }) => {
     return LocalFromLowDb;
 };
 
-export { GetFunc, GetOrderShowFunc };
+let GetRowSettlementFunc = ({ inBranch, inRow }) => {
+
+    let LocalFromLowDb = Settelment({ inBranch, inRow });
+
+    return LocalFromLowDb;
+};
+export { GetFunc, GetOrderShowFunc,GetRowSettlementFunc };
