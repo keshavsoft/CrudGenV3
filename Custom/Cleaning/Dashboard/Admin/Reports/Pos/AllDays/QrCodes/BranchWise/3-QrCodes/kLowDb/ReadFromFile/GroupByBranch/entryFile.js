@@ -1,4 +1,16 @@
+import { StartFunc as StartFuncArrayToObject } from "./arrayToObject.js";
+import { StartFunc as StartFuncInsertMaxAndMins } from "./insertMaxAndMins.js";
+import { StartFunc as StartFuncSortBy } from "./sortBy.js";
+
 let StartFunc = ({ inDataAsArray }) => {
+    const grouped = StartFuncArrayToObject({ inDataAsArray });
+    let LocalWithMaxAndMins = StartFuncInsertMaxAndMins({ inGroupedData: grouped });
+    let LocalSorted = StartFuncSortBy({ inDataAsArray: LocalWithMaxAndMins });
+
+    return LocalSorted;
+};
+
+let StartFunc1 = ({ inDataAsArray }) => {
     const grouped = inDataAsArray.reduce((result, item) => {
         const key = item.BranchName;
         if (!result[key]) {
@@ -21,7 +33,6 @@ let StartFunc = ({ inDataAsArray }) => {
             return element.OrderDateTime
         });
 
-
         // console.log("LoopInsideOrderDateTime : ", LoopInsideOrderDateTime);
 
         LocalReturnArray.push({
@@ -29,8 +40,8 @@ let StartFunc = ({ inDataAsArray }) => {
             QrCount: value.length,
             QrMax: LoopInsideQrCodes.reduce((a, b) => a > b ? a : b),
             QrMin: LoopInsideQrCodes.reduce((a, b) => a < b ? a : b),
-            OrderDateMax: LoopInsideOrderDateTime.reduce((a, b) => a > b ? a:b),
-            OrderDateMin: LoopInsideOrderDateTime.reduce((a, b) => a < b ? a:b)
+            OrderDateMax: LoopInsideOrderDateTime.reduce((a, b) => a > b ? a : b),
+            OrderDateMin: LoopInsideOrderDateTime.reduce((a, b) => a < b ? a : b)
         });
     };
 
