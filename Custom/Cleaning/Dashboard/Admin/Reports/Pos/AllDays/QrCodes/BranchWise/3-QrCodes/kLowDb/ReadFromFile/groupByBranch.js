@@ -12,11 +12,17 @@ let StartFunc = ({ inDataAsArray }) => {
 
     for (const [key, value] of Object.entries(grouped)) {
         const LoopInsideArray = value;
+
         const LoopInsideQrCodes = LoopInsideArray.map(element => {
             return element.QrCodeId
         });
 
-        // console.log("LoopInside : ", value, LoopInside);
+        const LoopInsideOrderDateTime = LoopInsideArray.map(element => {
+            return element.OrderDateTime
+        });
+
+
+        console.log("LoopInsideOrderDateTime : ", LoopInsideOrderDateTime);
 
         LocalReturnArray.push({
             BranchName: key,
