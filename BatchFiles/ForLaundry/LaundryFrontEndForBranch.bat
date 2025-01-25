@@ -1,5 +1,6 @@
 @echo off
 cd ..\LaundryFrontEndForBranch
+git pull
 
 call npm run Today-Orders
 call npm run Today-QrCodes

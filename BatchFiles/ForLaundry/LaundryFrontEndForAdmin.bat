@@ -1,5 +1,6 @@
 @echo off
 cd ..\LaundryFrontEndForAdmin
+git pull
 
 call npm run Menu
 
