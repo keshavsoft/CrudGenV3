@@ -37,7 +37,7 @@ let GetRowSettlementFunc = (req, res) => {
 
     if (LocalFromRepo.KTF === false) res.status(500).send(LocalFromRepo.KReason);
 
-    res.status(200).json(LocalFromRepo);
+    res.status(200).json(LocalFromRepo.JsonData);
 };
 
 export { GetFunc, GetOrderShowFunc,GetRowSettlementFunc };
