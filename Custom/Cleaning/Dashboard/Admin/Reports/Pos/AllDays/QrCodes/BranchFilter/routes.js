@@ -17,9 +17,10 @@ import { router as LeftInBranch } from "./12-LeftInBranch/routes.js";
 import { router as EntryFactoryReturn } from "./13-EntryFactoryReturn/routes.js"
 import { router as PressingRewash } from "./14-PressingRewash/routes.js"
 import { router as FactoryToBranch } from "./15-FactoryToBranch/routes.js"
-
-
-
+import { router as F_F_Entry_Return_Scan } from "./16-F_F_Entry_Return_Scan/routes.js"
+import { router as F_F_Pressing_Return_Scan } from "./17-F_F_Pressing_Return_Scan/routes.js"
+import { router as F_F_Completion_Scan } from "./18-F_F_Completion_Scan/routes.js"
+import { router as Delivery } from "./19-Delivery/routes.js"
 
 router.use("/QrCodes", QrCodes);
 router.use("/Orders", Orders);
@@ -36,6 +37,9 @@ router.use("/LeftInBranch", LeftInBranch);
 router.use("/EntryFactoryReturn", EntryFactoryReturn);
 router.use("/PressingRewash", PressingRewash);
 router.use("/FactoryToBranch", FactoryToBranch);
-
+router.use("/F_F_Entry_Return_Scan", F_F_Entry_Return_Scan);
+router.use("/F_F_Pressing_Return_Scan", F_F_Pressing_Return_Scan);
+router.use("/F_F_Completion_Scan", F_F_Completion_Scan);
+router.use("/Delivery", Delivery);
 
 export { router };
