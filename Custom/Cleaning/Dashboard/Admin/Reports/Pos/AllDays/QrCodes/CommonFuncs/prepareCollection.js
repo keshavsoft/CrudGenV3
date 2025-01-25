@@ -1,4 +1,4 @@
-let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inPress_ReWashScanData, inWashingScanData, inPressingScanData, inCompletionScanData, inPressingRejectScanData, inEntryCancelScanData, inFactoryToBranch_Scan }) => {
+let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inPress_ReWashScanData, inWashingScanData, inPressingScanData, inCompletionScanData, inPressingRejectScanData, inEntryCancelScanData, inFactoryToBranch_Scan, inF_F_Entry_Return_ScanData, inF_F_Pressing_Return_ScanData, inF_F_Completion_ScanData, inTo_Delivery_ScanData }) => {
     let jVarLocalReturnObject = inQrData.map(loopQr => {
         const loopBranchScanFindData = inBranchScandata.find(loopScan => loopScan.QrCodeId == loopQr.pk);
         const LoopInsideFindEntryScan = inEntryScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
@@ -9,7 +9,11 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inPress_ReWashSc
         const LoopInsideFindinPress_ReWashScan = inPress_ReWashScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
         const LoopInsideFindEntryCancelScan = inEntryCancelScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
         const LoopInsideFactoryToBranch_Scan = inFactoryToBranch_Scan.find(loopScan => loopScan.QrCodeId == loopQr.pk);
-        
+        const LoopInsideF_F_Entry_Return_ScanData = inF_F_Entry_Return_ScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
+        const LoopInsideF_F_Pressing_Return_ScanData = inF_F_Pressing_Return_ScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
+        const LoopInsideF_F_Completion_ScanData = inF_F_Completion_ScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
+        const LoopInsideinTo_Delivery_Scan = inTo_Delivery_ScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
+
         const { BookingData: BookingDetails } = loopQr;
 
         return {
@@ -21,7 +25,7 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inPress_ReWashSc
             DeliveryDateTime: loopQr.DeliveryDateTime,
             location: loopQr.location,
             OrderNumber: loopQr.OrderNumber,
-            OrderDateTime:  BookingDetails.OrderData.Currentdateandtime,
+            OrderDateTime: BookingDetails.OrderData.Currentdateandtime,
 
             CustomerName: BookingDetails.CustomerData.CustomerName,
             CustomerMobileNumber: BookingDetails.CustomerData.Mobile,
@@ -46,11 +50,13 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inPress_ReWashSc
             EntryReturnScan_DCDate: LoopInsideFindEntryCancelScan?.DCDate,
             EntryRetrunScan_FactoryName: LoopInsideFindEntryCancelScan?.FactoryName,
 
+            // WashingScan
             WashingScan: LoopInsideFindWashingScan ? true : false,
             WashingScan_DC: LoopInsideFindWashingScan?.VoucherRef,
             WashingScan_DCDate: LoopInsideFindWashingScan?.DCDate,
             WashingScan_FactoryName: LoopInsideFindWashingScan?.FactoryName,
 
+            // PressingScan
             PressingScan: LoopInsideFindPressingScan ? true : false,
             PressingScan_DC: LoopInsideFindPressingScan?.VoucherRef,
             PressingScan_DCDate: LoopInsideFindPressingScan?.DCDate,
@@ -62,20 +68,47 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inPress_ReWashSc
             PressingScan_DCDate: LoopInsideFindinPress_ReWashScan?.DCDate,
             PressingScan_FactoryName: LoopInsideFindinPress_ReWashScan?.FactoryName,
 
+            // CompletionScan
             CompletionScan: LoopInsideFindCompletionScan ? true : false,
             CompletionScan_DC: LoopInsideFindCompletionScan?.VoucherRef,
             CompletionScan_DCDate: LoopInsideFindCompletionScan?.DCDate,
             CompletionScan_FactoryName: LoopInsideFindCompletionScan?.FactoryName,
 
+            // PressingRejectScan
             PressingRejectScan: LoopInsideFindPressingRejectScan ? true : false,
             PressingRejectScan_DC: LoopInsideFindPressingRejectScan?.VoucherRef,
             PressingRejectScan_DCDate: LoopInsideFindPressingRejectScan?.DCDate,
             PressingRejectScan_FactoryName: LoopInsideFindPressingRejectScan?.FactoryName,
 
+            // FactoryToBranchScan
             FactoryToBranchScan: LoopInsideFactoryToBranch_Scan ? true : false,
             FactoryToBranchScan_DC: LoopInsideFactoryToBranch_Scan?.VoucherRef,
             FactoryToBranchScan_DCDate: LoopInsideFactoryToBranch_Scan?.DCDate,
             FactoryToBranchScan_FactoryName: LoopInsideFactoryToBranch_Scan?.FactoryName,
+
+            // F_F_Entry_Return_Scan
+            F_F_Entry_Return_Scan: LoopInsideF_F_Entry_Return_ScanData ? true : false,
+            F_F_Entry_Return_Scan_DC: LoopInsideF_F_Entry_Return_ScanData?.VoucherRef,
+            F_F_Entry_Return_Scan_DCDate: LoopInsideF_F_Entry_Return_ScanData?.DCDate,
+            F_F_Entry_Return_Scan_FactoryName: LoopInsideF_F_Entry_Return_ScanData?.FactoryName,
+
+            // F_F_Pressing_Return_Scan
+            F_F_Pressing_Return_Scan: LoopInsideF_F_Pressing_Return_ScanData ? true : false,
+            F_F_Pressing_Return_Scan_DC: LoopInsideF_F_Pressing_Return_ScanData?.VoucherRef,
+            F_F_Pressing_Return_Scan_DCDate: LoopInsideF_F_Pressing_Return_ScanData?.DCDate,
+            F_F_Pressing_Return_Scan_FactoryName: LoopInsideF_F_Pressing_Return_ScanData?.FactoryName,
+
+            // F_F_Completion_Scan
+            F_F_Completion_Scan: LoopInsideF_F_Completion_ScanData ? true : false,
+            F_F_Completion_Scan_DC: LoopInsideF_F_Completion_ScanData?.VoucherRef,
+            F_F_Completion_Scan_DCDate: LoopInsideF_F_Completion_ScanData?.DCDate,
+            F_F_Completion_Scan_FactoryName: LoopInsideF_F_Completion_ScanData?.FactoryName,
+
+            // To_Delivery_Scan
+            To_Delivery_Scan: LoopInsideinTo_Delivery_Scan ? true : false,
+            To_Delivery_Scan_DC: LoopInsideinTo_Delivery_Scan?.VoucherRef,
+            To_Delivery_Scan_DCDate: LoopInsideinTo_Delivery_Scan?.DCDate,
+            To_Delivery_Scan_FactoryName: LoopInsideinTo_Delivery_Scan?.FactoryName,
 
             BranchName: loopQr.BookingData.OrderData.BranchName,
             TimeSpan: TimeSpan({ DateTime: loopQr.DateTime })

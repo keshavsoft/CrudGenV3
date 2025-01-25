@@ -9,7 +9,10 @@ import { StartFunc as prepareCollection } from "./prepareCollection.js";
 import { StartFunc as Press_ReWashScan } from "./Press_ReWashScan.js";
 import { StartFunc as EntryCancelScan } from "./EntryCancelScan.js";
 import { StartFunc as FactoryToBranchScan } from "./FactoryToBranchScan.js";
-
+import { StartFunc as F_F_Entry_Return_Scan } from "./F_F_Entry_Return_Scan.js";
+import { StartFunc as F_F_Pressing_Return_Scan } from "./F_F_Pressing_Return_Scan.js";
+import { StartFunc as F_F_Completion_Scan } from "./F_F_Completion_Scan.js";
+import { StartFunc as To_Delivery_Scan } from "./To_Delivery_Scan.js";
 
 let StartFunc = () => {
     const QrCodeData = QrCodes();
@@ -22,7 +25,10 @@ let StartFunc = () => {
     const Press_ReWashScanData = Press_ReWashScan();
     const EntryCancelScanData = EntryCancelScan();
     const FactoryToBranch_Scan = FactoryToBranchScan();
-
+    const F_F_Entry_Return_ScanData = F_F_Entry_Return_Scan();
+    const F_F_Pressing_Return_ScanData = F_F_Pressing_Return_Scan();
+    const F_F_Completion_ScanData = F_F_Completion_Scan();
+    const To_Delivery_ScanData = To_Delivery_Scan();
 
     let jVarLocalTransformedData = prepareCollection({
         inQrData: QrCodeData,
@@ -35,6 +41,10 @@ let StartFunc = () => {
         inEntryCancelScanData: EntryCancelScanData,
         inPress_ReWashScanData: Press_ReWashScanData,
         inFactoryToBranch_Scan: FactoryToBranch_Scan,
+        inF_F_Entry_Return_ScanData: F_F_Entry_Return_ScanData,
+        inF_F_Pressing_Return_ScanData: F_F_Pressing_Return_ScanData,
+        inF_F_Completion_ScanData: F_F_Completion_ScanData,
+        inTo_Delivery_ScanData: To_Delivery_ScanData,
 
     });
 
