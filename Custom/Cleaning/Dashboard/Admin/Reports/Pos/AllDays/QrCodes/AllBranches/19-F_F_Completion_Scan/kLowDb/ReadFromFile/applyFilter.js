@@ -1,4 +1,4 @@
-const CommonFilterKey = "CompletionScan";
+const CommonFilterKey = "FactoryToBranchScan";
 
 const StartFunc = ({ inQrcodeArray }) => {
     const LocalFilteredArray = inQrcodeArray.filter(element => {
