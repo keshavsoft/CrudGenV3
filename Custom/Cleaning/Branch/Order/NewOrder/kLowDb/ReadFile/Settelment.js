@@ -1,33 +1,37 @@
 import { StartFunc as StartFuncPullData } from "../CommonFuncs/CutomTable.js";
 
-let StartFunc = ({ inBranch, inRow }) => {
+const StartFunc = ({ inBranch, inRow }) => {
     let LocalReturnData = { KTF: false };
-    let LocalinBranch = inBranch;
-    let LocalRow = parseInt(inRow);
+    let LocalStartFuncPullData = StartFuncPullData({ inTable: inBranch });
 
-    let LocalStartFuncPullData = StartFuncPullData({ inTable: LocalinBranch });
-
-    if (LocalStartFuncPullData.KTF === false) {
-        LocalReturnData.KReason = LocalStartFuncPullData.KReason;
-        return LocalReturnData;
-    }
+    if (!LocalStartFuncPullData.KTF) {
+        return { ...LocalReturnData, KReason: LocalStartFuncPullData.KReason };
+    };
 
     const db = LocalStartFuncPullData.JsonData;
-    let LocalRowFind = db.find(element => element.pk === LocalRow);
+    let LocalRowFind = db.find(element => element.pk === parseInt(inRow));
 
-    if (LocalRowFind === undefined) {
-        LocalReturnData.KReason = "No Data";
-        return LocalReturnData;
-    }
+    if (!LocalRowFind) {
+        return { ...LocalReturnData, KReason: "No Data" };
+    };
+    let LocalCheckOutData = LocalRowFind ? LocalRowFind.CheckOutData[1] : {};
 
-    LocalReturnData.KTF = true;
-    LocalReturnData.CustomerName = LocalRowFind.CustomerData?.CustomerName;
-    LocalReturnData.Mobile = LocalRowFind.CustomerData?.CustomerMobile;
-    LocalReturnData.BranchName = LocalRowFind.OrderData?.BranchName;
-    LocalReturnData.Rate = LocalRowFind.ItemsInOrder?.Rate;
-    LocalReturnData.OrderNumber = LocalRowFind.pk;
+    let LocalItemsTotal = Object.values(LocalRowFind?.ItemsInOrder)
+        .map(el => el.Total)
+        .reduce((a, b) => a + parseInt(b), 0);
 
-    return LocalReturnData;
+    return {
+        KTF: true,
+        JsonData: {
+            CustomerName: LocalRowFind.CustomerData?.CustomerName,
+            Mobile: LocalRowFind.CustomerData?.CustomerMobile,
+            BranchName: LocalRowFind.OrderData?.BranchName,
+            Rate: LocalItemsTotal,
+            Date: new Date(LocalRowFind?.DateTime).toLocaleDateString('en-GB'),
+            OrderNumber: LocalRowFind.pk,
+            CheckOutData: LocalCheckOutData
+        }
+    };
 };
 
 export { StartFunc };
