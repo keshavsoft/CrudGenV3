@@ -21,8 +21,8 @@ let StartFunc = ({ inGroupedData }) => {
             QrCount: value.length,
             QrMax: LoopInsideQrCodes.reduce((a, b) => a > b ? a : b),
             QrMin: LoopInsideQrCodes.reduce((a, b) => a < b ? a : b),
-            OrderDateMax: LoopInsideOrderDateTime.reduce((a, b) => a > b ? a : b),
-            OrderDateMin: LoopInsideOrderDateTime.reduce((a, b) => a < b ? a : b)
+            OrderDateMax: new Date(LoopInsideOrderDateTime.reduce((a, b) => a > b ? a : b)).toLocaleDateString('en-GB'),
+            OrderDateMin: new Date(LoopInsideOrderDateTime.reduce((a, b) => a < b ? a : b)).toLocaleDateString('en-GB')
         });
     };
 
