@@ -22,13 +22,15 @@ let StartFunc = ({ inDataAsArray }) => {
         });
 
 
-        console.log("LoopInsideOrderDateTime : ", LoopInsideOrderDateTime);
+        // console.log("LoopInsideOrderDateTime : ", LoopInsideOrderDateTime);
 
         LocalReturnArray.push({
             BranchName: key,
             QrCount: value.length,
             QrMax: LoopInsideQrCodes.reduce((a, b) => a > b ? a : b),
-            QrMin: LoopInsideQrCodes.reduce((a, b) => a < b ? a : b)
+            QrMin: LoopInsideQrCodes.reduce((a, b) => a < b ? a : b),
+            OrderDateMax: LoopInsideOrderDateTime.reduce((a, b) => a > b ? a:b),
+            OrderDateMin: LoopInsideOrderDateTime.reduce((a, b) => a < b ? a:b)
         });
     };
 
