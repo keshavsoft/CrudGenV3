@@ -1,4 +1,4 @@
-const CommonFilterKey = "EntryCancelScan";
+const CommonFilterKey = "EntryReturnScan";
 
 const StartFunc = ({ inQrcodeArray }) => {
     const LocalFilteredArray = inQrcodeArray.filter(element => {

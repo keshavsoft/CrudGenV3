@@ -1,4 +1,4 @@
-const CommonFilterKey = "PressingCancelScan";
+const CommonFilterKey = "PressingRejectScan";
 
 const StartFunc = ({ inQrcodeArray }) => {
     const LocalFilteredArray = inQrcodeArray.filter(element => {
