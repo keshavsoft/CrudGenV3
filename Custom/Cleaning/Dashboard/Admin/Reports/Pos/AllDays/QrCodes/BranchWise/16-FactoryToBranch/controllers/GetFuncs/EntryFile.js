@@ -10,8 +10,11 @@ let GetFuncs = (req, res) => {
         res.status(500).send(LocalFromRepo.KReason);
         return;
     };
-
-    res.status(200).json(LocalFromRepo);
+    res.set({
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0',
+    }).status(200).json(LocalFromRepo);
 };
 
 
