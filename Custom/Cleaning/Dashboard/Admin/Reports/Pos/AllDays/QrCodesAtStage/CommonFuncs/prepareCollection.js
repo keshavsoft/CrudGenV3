@@ -1,4 +1,4 @@
-let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanData, inPressingScanData, inCompletionScanData, inPressingRejectScanData, inFactoryToBranch, inEntryRejectScanData, inPressingReWashScanData, inDeliveryData }) => {
+let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanData, inPressingScanData, inCompletionScanData, inPressingRejectScanData, inFactoryToBranch, inEntryRejectScanData, inPressingReWashScanData, inDeliveryData, inF_F_Entry_Return_ScanData, inF_F_Pressing_Return_ScanData, inF_F_Completion_ScanData, inTo_Delivery_ScanData }) => {
 
     let jVarLocalReturnObject = inQrData.map(loopQr => {
         const loopBranchScanFindData = inBranchScandata.find(loopScan => loopScan.QrCodeId == loopQr.pk);
@@ -11,6 +11,10 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanDat
         const LoopInsideFindEntryRejectScan = inEntryRejectScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
         const LoopInsideFindPressingRewashScan = inPressingReWashScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
         const LoopInsideFindDelivery = inDeliveryData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
+        const LoopInsideF_F_Entry_Return_ScanData = inF_F_Entry_Return_ScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
+        const LoopInsideF_F_Pressing_Return_ScanData = inF_F_Pressing_Return_ScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
+        const LoopInsideF_F_Completion_ScanData = inF_F_Completion_ScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
+        const LoopInsideinTo_Delivery_Scan = inTo_Delivery_ScanData.find(loopScan => loopScan.QrCodeId == loopQr.pk);
 
         let LoopInsideReturnObject = {
             QrCodeId: loopQr.pk,
@@ -74,6 +78,31 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inWashingScanDat
             DeliveryScan_DC: LoopInsideFindDelivery?.VoucherRef,
             DeliveryScan_DCDate: LoopInsideFindDelivery?.DCDate,
             DeliveryScan_FactoryName: LoopInsideFindDelivery?.FactoryName,
+
+            // F_F_Entry_Return_Scan
+            F_F_Entry_Return_Scan: LoopInsideF_F_Entry_Return_ScanData ? true : false,
+            F_F_Entry_Return_Scan_DC: LoopInsideF_F_Entry_Return_ScanData?.VoucherRef,
+            F_F_Entry_Return_Scan_DCDate: LoopInsideF_F_Entry_Return_ScanData?.DCDate,
+            F_F_Entry_Return_Scan_FactoryName: LoopInsideF_F_Entry_Return_ScanData?.FactoryName,
+
+            // F_F_Pressing_Return_Scan
+            F_F_Pressing_Return_Scan: LoopInsideF_F_Pressing_Return_ScanData ? true : false,
+            F_F_Pressing_Return_Scan_DC: LoopInsideF_F_Pressing_Return_ScanData?.VoucherRef,
+            F_F_Pressing_Return_Scan_DCDate: LoopInsideF_F_Pressing_Return_ScanData?.DCDate,
+            F_F_Pressing_Return_Scan_FactoryName: LoopInsideF_F_Pressing_Return_ScanData?.FactoryName,
+
+            // F_F_Completion_Scan
+            F_F_Completion_Scan: LoopInsideF_F_Completion_ScanData ? true : false,
+            F_F_Completion_Scan_DC: LoopInsideF_F_Completion_ScanData?.VoucherRef,
+            F_F_Completion_Scan_DCDate: LoopInsideF_F_Completion_ScanData?.DCDate,
+            F_F_Completion_Scan_FactoryName: LoopInsideF_F_Completion_ScanData?.FactoryName,
+
+            // To_Delivery_Scan
+            To_Delivery_Scan: LoopInsideinTo_Delivery_Scan ? true : false,
+            To_Delivery_Scan_DC: LoopInsideinTo_Delivery_Scan?.VoucherRef,
+            To_Delivery_Scan_DCDate: LoopInsideinTo_Delivery_Scan?.DCDate,
+            To_Delivery_Scan_FactoryName: LoopInsideinTo_Delivery_Scan?.FactoryName,
+
 
             BranchName: loopQr.BookingData.OrderData.BranchName
         };
