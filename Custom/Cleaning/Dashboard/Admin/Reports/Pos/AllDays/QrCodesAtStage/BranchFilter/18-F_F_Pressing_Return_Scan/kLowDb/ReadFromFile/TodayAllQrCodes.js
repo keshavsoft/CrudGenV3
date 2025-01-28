@@ -1,14 +1,13 @@
 import { StartFunc as buildData } from '../../../../CommonFuncs/buildData.js';
+import { StartFunc as applyFilter } from "./applyFilter.js";
 
 let StartFunc = ({ inBranchName }) => {
-    let LocalQrCodeData = buildData();
+    const LocalQrCodeData = buildData();
+    const LocalFilteredArray = applyFilter({ inQrcodeArray: LocalQrCodeData, inBranchName });
 
-    LocalQrCodeData=LocalQrCodeData.filter(element => {
-        return element.BranchName === inBranchName && element.PressingRejectScan === true;
-    });
+    let LocalArrayReverseData = LocalFilteredArray.slice().reverse();
 
-    return LocalQrCodeData.slice().reverse();
-    // return groupByBranch({ inDataAsArray: LocalQrCodeData });
+    return LocalArrayReverseData;
 };
 
 export { StartFunc };

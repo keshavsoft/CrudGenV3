@@ -10,7 +10,6 @@ import { router as InCompletion } from "./15-Incompletion/routes.js";
 import { router as FactoryToBranch } from "./16-FactoryToBranch/routes.js";
 import { router as F_F_Entry_Return_Scan } from "./17-F_F_Entry_Return_Scan/routes.js"
 import { router as F_F_Pressing_Return_Scan } from "./18-F_F_Pressing_Return_Scan/routes.js"
-import { router as F_F_Completion_Scan } from "./19-F_F_Completion_Scan/routes.js"
 import { router as Delivery } from "./20-Delivery/routes.js"
 
 router.use("/InGenerate", InGenerate);
@@ -21,7 +20,6 @@ router.use("/InCompletion", InCompletion);
 router.use("/FactoryToBranch", FactoryToBranch);
 router.use("/F_F_Entry_Return_Scan", F_F_Entry_Return_Scan);
 router.use("/F_F_Pressing_Return_Scan", F_F_Pressing_Return_Scan);
-router.use("/F_F_Completion_Scan", F_F_Completion_Scan);
 router.use("/Delivery", Delivery);
 
 export { router };
