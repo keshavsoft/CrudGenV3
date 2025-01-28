@@ -12,7 +12,6 @@ import { router as InRewash } from "./17-InRewash/routes.js";
 import { router as Delivery } from "./18-Delivery/routes.js";
 import { router as F_F_Entry_Return_Scan } from "./19-F_F_Entry_Return_Scan/routes.js";
 import { router as F_F_Pressing_Return_Scan } from "./20-F_F_Pressing_Return_Scan/routes.js";
-import { router as F_F_Completion_Scan } from "./21-F_F_Completion_Scan/routes.js";
 import { router as To_Delivery_Scan } from "./22-To_Delivery_Scan/routes.js";
 
 router.use("/InGenerate", InGenerate);
@@ -25,7 +24,6 @@ router.use("/InRewash", InRewash);
 router.use("/Delivery", Delivery);
 router.use("/F_F_Entry_Return_Scan", F_F_Entry_Return_Scan);
 router.use("/F_F_Pressing_Return_Scan", F_F_Pressing_Return_Scan);
-router.use("/F_F_Completion_Scan", F_F_Completion_Scan);
 router.use("/To_Delivery_Scan", To_Delivery_Scan);
 
 
