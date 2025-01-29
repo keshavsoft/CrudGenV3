@@ -22,11 +22,10 @@ let StartFunc = ({ inQrData, inBranchScandata, inEntryScanData, inPress_ReWashSc
             Rate: loopQr.Rate,
             FactorySelected: loopQr.FactorySelected,
             OrderNo: loopQr.GenerateReference.ReferncePk,
-            DeliveryDateTime: loopQr.DeliveryDateTime,
+            DeliveryDateTime: new Date(loopQr.DeliveryDateTime).toLocaleDateString('en-GB'),
             location: loopQr.location,
             OrderNumber: loopQr.OrderNumber,
-            OrderDateTime: BookingDetails.OrderData.Currentdateandtime,
-
+            OrderDateTime: formatDateTime(BookingDetails.OrderData.Currentdateandtime),
             CustomerName: BookingDetails.CustomerData.CustomerName,
             CustomerMobileNumber: BookingDetails.CustomerData.Mobile,
 
@@ -135,5 +134,15 @@ function TimeSpan({ DateTime }) {
         return diffMins + " min";
     }
 }
-
+function formatDateTime(orderDateTime) {
+    const date = new Date(orderDateTime);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); 
+    const year = date.getFullYear();
+    let hours = date.getHours();
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const amPm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12; 
+    return `${day}/${month}/${year} ${hours}:${minutes} ${amPm}`;
+}
 export { StartFunc };
