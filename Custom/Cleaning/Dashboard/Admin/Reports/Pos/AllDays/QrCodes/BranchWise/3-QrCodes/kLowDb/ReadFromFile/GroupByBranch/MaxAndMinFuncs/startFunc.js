@@ -1,4 +1,6 @@
 import { StartFunc as StartFuncForQrCodes } from "./forQrCodes.js";
+import { StartFunc as forOrderDate } from "./forOrderDate.js";
+
 
 let StartFunc = ({ inGroupedData }) => {
     const grouped = inGroupedData;
@@ -8,21 +10,10 @@ let StartFunc = ({ inGroupedData }) => {
     for (const [key, value] of Object.entries(grouped)) {
         const LoopInsideArray = value;
 
-        const LoopInsideQrCodes = LoopInsideArray.map(element => {
-            return element.QrCodeId
-        });
-
-        const LoopInsideOrderDateTime = LoopInsideArray.map(element => {
-            return element.OrderDateTime
-        });
-
-        // console.log("LoopInsideOrderDateTime : ", LoopInsideOrderDateTime);
-
         LocalReturnArray.push({
             BranchName: key,
             QrCount: value.length,
-            OrderDateMax: LoopInsideOrderDateTime.reduce((a, b) => a > b ? a : b),
-            OrderDateMin: LoopInsideOrderDateTime.reduce((a, b) => a < b ? a : b),
+            ...forOrderDate({ inDataAsArray: LoopInsideArray }),
             ...StartFuncForQrCodes({ inDataAsArray: LoopInsideArray })
         });
     };
